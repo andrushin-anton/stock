@@ -1,0 +1,21 @@
+<% content_for :title, 'Financial Instruments | Finance Assistant' %>
+<br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.symbol %></td>
+        <td><%= item.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= will_paginate @items, renderer: BootstrapPagination::Rails %>

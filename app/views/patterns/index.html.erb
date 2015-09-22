@@ -1,0 +1,19 @@
+<% content_for :title, 'Patterns | Finance Assistant' %>
+<br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name,</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patterns.each do |pattern| %>
+      <tr>
+        <td><%= pattern.name %></td>
+        <td><%= pattern.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

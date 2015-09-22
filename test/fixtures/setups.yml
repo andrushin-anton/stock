@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  symbol: MyString
+  datetime: 2015-08-27 09:04:59
+  pattern: MyString
+
+two:
+  symbol: MyString
+  datetime: 2015-08-27 09:04:59
+  pattern: MyString

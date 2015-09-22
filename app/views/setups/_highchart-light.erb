@@ -1,0 +1,125 @@
+<div id="chart_div_<%= setup.symbol%>_<%= setup.pattern_object.name%>_<%= setup.datetime.to_time.to_i%>" style="width:<%= width %>; height:<%= height %>;"></div>
+
+<script type="text/javascript">
+    $(function () {
+        // Add the background image to the container
+        Highcharts.wrap(Highcharts.Chart.prototype, 'getContainer', function (proceed) {
+            proceed.call(this);
+            this.container.style.background = 'url(https://dl.dropboxusercontent.com/s/n7r1hokqxwwybz8/sand.png)';
+        });
+        Highcharts.theme = {
+            colors: ["#f45b5b", "#8085e9", "#8d4654", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee",
+                "#55BF3B", "#DF5353", "#7798BF", "#aaeeee"],
+            chart: {
+                backgroundColor: null,
+                style: {
+                    fontFamily: "Signika, serif"
+                }
+            },
+            title: {
+                style: {
+                    color: 'black',
+                    fontSize: '16px',
+                    fontWeight: 'bold'
+                }
+            },
+            subtitle: {
+                style: {
+                    color: 'black'
+                }
+            },
+            tooltip: {
+                borderWidth: 0
+            },
+            legend: {
+                itemStyle: {
+                    fontWeight: 'bold',
+                    fontSize: '13px'
+                }
+            },
+            xAxis: {
+                labels: {
+                    style: {
+                        color: '#6e6e70'
+                    }
+                }
+            },
+            yAxis: {
+                labels: {
+                    style: {
+                        color: '#6e6e70'
+                    }
+                }
+            },
+            plotOptions: {
+                series: {
+                    shadow: true
+                },
+                candlestick: {
+                    lineColor: '#404048'
+                },
+                map: {
+                    shadow: false
+                }
+            },
+            // Highstock specific
+            navigator: {
+                xAxis: {
+                    gridLineColor: '#D0D0D8'
+                }
+            },
+            rangeSelector: {
+                buttonTheme: {
+                    fill: 'white',
+                    stroke: '#C0C0C8',
+                    'stroke-width': 1,
+                    states: {
+                        select: {
+                            fill: '#D0D0D8'
+                        }
+                    }
+                }
+            },
+            scrollbar: {
+                trackBorderColor: '#C0C0C8'
+            },
+
+            // General
+            background2: '#E0E0E8'
+        };
+        // Apply the theme
+        Highcharts.setOptions(Highcharts.theme);
+
+        var data = [
+            <% setup.quotes.each do |day| %>
+            [<%= day.date.to_i %>000,<%= day.open %>,<%= day.hight %>,<%= day.low %>,<%= day.close %>],
+            <% end %>
+        ];
+        // create the chart
+        $('#chart_div_<%= setup.symbol%>_<%= setup.pattern_object.name%>_<%= setup.datetime.to_time.to_i%>').highcharts('StockChart', {
+            rangeSelector : {
+                selected : <%= selected %>
+            },
+            title : {
+                text : ''
+            },
+            series : [{
+                type : 'candlestick',
+                id : '<%= setup.symbol%>_<%= setup.pattern_object.name%>_<%= setup.datetime.to_time.to_i%>',
+                name : '<%= setup.name %>',
+                data : data,
+                dataGrouping : {
+                    units : [
+                        [
+                            'week', // unit name
+                            [1] // allowed multiples
+                        ], [
+                            'month',
+                            [1, 2, 3, 4, 6]
+                        ]
+                    ]
+                }
+            }]
+        });
+    });
+</script>

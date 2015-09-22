@@ -1,0 +1,81 @@
+<div id="chart_div_<%= setup.symbol%>_<%= setup.pattern_object.name%>_<%= setup.datetime.to_time.to_i%>" style="width:<%= width %>; height:<%= height %>;"></div>
+
+<script type="text/javascript">
+    $(function () {
+        var data = [
+            <% setup.quotes.each do |day| %>
+            [<%= day.date.to_i %>000,<%= day.open %>,<%= day.hight %>,<%= day.low %>,<%= day.close %>],
+            <% end %>
+        ];
+        var volume = [
+            <% setup.quotes.each do |day| %>
+            [<%= day.date.to_i %>000,<%= day.volume %>],
+            <% end %>
+        ];
+        // create the chart
+        $('#chart_div_<%= setup.symbol%>_<%= setup.pattern_object.name%>_<%= setup.datetime.to_time.to_i%>').highcharts('StockChart', {
+            rangeSelector : {
+                selected : <%= selected %>
+            },
+            title : {
+                text : ''
+            },
+            yAxis: [{
+                labels: {
+                    align: 'right',
+                    x: -3
+                },
+                title: {
+                    text: 'OHLC'
+                },
+                height: '60%',
+                lineWidth: 2
+            }, {
+                labels: {
+                    align: 'right',
+                    x: -3
+                },
+                title: {
+                    text: 'Volume'
+                },
+                top: '65%',
+                height: '35%',
+                offset: 0,
+                lineWidth: 2
+            }],
+            series : [{
+                type : 'candlestick',
+                id : '<%= setup.symbol%>_<%= setup.pattern_object.name%>_<%= setup.datetime.to_time.to_i%>',
+                name : '<%= setup.name %>',
+                data : data,
+                dataGrouping : {
+                    units : [
+                        [
+                            'week', // unit name
+                            [1] // allowed multiples
+                        ], [
+                            'month',
+                            [1, 2, 3, 4, 6]
+                        ]
+                    ]
+                }
+            }, {
+                type: 'column',
+                name: 'Volume',
+                data: volume,
+                yAxis: 1,
+                dataGrouping: {
+                    units : [
+                        [
+                            'week', // unit name
+                            [1] // allowed multiples
+                        ], [
+                            'month',
+                            [1, 2, 3, 4, 6]
+                        ]
+                    ]
+                }
+            }]
+        });
+    });
+</script>

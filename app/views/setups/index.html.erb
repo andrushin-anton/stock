@@ -1,0 +1,48 @@
+<% content_for :title, 'Latest finance advices | Finance Assistant' %>
+<br>
+  <% @setups.each do |setup| %>
+    <div class="page-header">
+      <h1><a href="<%= setup_path setup %>" class="header-link"><%= setup.name %></a> <small><%= setup.datetime.strftime('%B %d, %Y') %></small></h1>
+    </div>
+    <table class="setup-table">
+      <tr>
+        <td class="align-top" width="50%">
+          <table class="table table-border-bottom">
+            <tr>
+              <td>Symbol: <strong><%= setup.symbol %></strong></td><td>&nbsp;</td><td>Pattern: <strong><%= setup.pattern %></strong></td></td><td>&nbsp;</td><td>Exchange: <strong><%= setup.item.market %></strong></td>
+            </tr>
+            <% levels = JSON.parse setup.levels %>
+            <% levels.each do |level| %>
+            <% if level.has_key?('buy_stop') || level.has_key?('stop_loss') %>
+                <tr>
+                  <% if level.has_key?('buy_stop')%><td>Buy Stop: <strong><%= level['buy_stop'].round(2) %></strong></td><td>&nbsp;</td><% end %><% if level.has_key?('stop_loss') %><td>Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong></td><% end %><td>&nbsp;</td><td>&nbsp;</td>
+                </tr>
+            <% end %>
+            <% if level.has_key?('sell_stop') %>
+                <tr>
+                  <td>Sell Stop: <strong><%= level['sell_stop'].round(2) %></strong></td><td>&nbsp;</td><td>Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong></td><td>&nbsp;</td><td>&nbsp;</td>
+                </tr>
+            <% end %>
+            <% end %>
+          </table>
+          <h4 class="<%= setup.direction %>">
+            <% if setup.direction == 'BUY_SELL' %>
+                <span class="BUY">BUY</span> / <span class="SELL">SELL</span>
+            <% else %>
+                <%= setup.direction %>
+            <% end %>
+          </h4>
+          <p>
+            <strong><%= setup.pattern_object.name %></strong> - <%= truncate(setup.pattern_object.description, :length => 2000) %>
+          </p>
+        </td>
+        <td class="left-border" width="50%">
+          <%= render :partial => 'highchart', :locals => { :setup => setup, :width => '100%', :height => '550px', :selected => 0 } %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+
+<div class="paging">
+  <%= will_paginate @setups, renderer: BootstrapPagination::Rails %>
+</div>
