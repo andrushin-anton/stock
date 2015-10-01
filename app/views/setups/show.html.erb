@@ -22,6 +22,9 @@
   <% end %>
 </table>
 <h4><%= @setup.direction%></h4>
+<p>
+  <%= @setup.levels %>
+</p>
 <div>
   <%= render :partial => 'highchart', :locals => { :setup => @setup, :width => '100%', :height => '650px', :selected => 1 } %>
 </div>

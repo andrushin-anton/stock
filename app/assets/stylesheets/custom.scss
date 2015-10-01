@@ -39,7 +39,6 @@ body, input, select, textarea {
   }
 }
 .container {
-  padding-top: 50px;
   padding-bottom: 50px;
 }
 .page-header {
@@ -72,6 +71,14 @@ body, input, select, textarea {
   background-image: url("noise-1.png"), linear-gradient(top, #517fa4, #306088);
   background-position: 50% 50%;
   z-index: 100;
+}
+
+body {
+  padding-top: 40px;
+}
+
+.nav-up {
+  top: -43px;
 }
 
 .nav-pills .current {

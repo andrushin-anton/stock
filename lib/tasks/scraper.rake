@@ -30,6 +30,10 @@ namespace :scraper do
       # Display results to screen
       # puts JSON.pretty_generate result
 
+      if result['query']['results'].nil?
+        raise('Yahoo did not return any quote results')
+      end
+
       result['query']['results']['quote'].each do |quote|
         unless ActiveRecord::Base.connection.table_exists?('D_'+quote['symbol'])
           ActiveRecord::Base.connection.create_table 'D_'+quote['symbol'] do |t|
@@ -67,7 +71,7 @@ namespace :scraper do
           price.save
         end
       end
-      sleep(5)
+      sleep(10)
       offset = offset + limit
     end
   end

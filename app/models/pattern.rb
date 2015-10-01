@@ -2,86 +2,276 @@ class Pattern < ActiveRecord::Base
   require 'json'
   belongs_to :setup, :foreign_key => 'name', :primary_key => 'pattern'
 
+  def MACD_STOCHASTIC(data, item)
+    macd = Macd.new(data)
+    stochastic = Stochastic.new
+    moving_average = MovingAverage.new
+    yesterday = data.drop(1)
+
+    # puts '================'
+    # puts item.name
+    # puts 'sma 22:'
+    # puts moving_average.sma(22, data)
+    # puts 'ema 22:'
+    # puts moving_average.ema(22, data)
+    # puts 'macd(26,12,9)'
+    # puts macd.value
+    # puts 'signal'
+    # puts macd.signal
+    # puts 'stochastic'
+    # stochastic.calculate(data)
+    # puts stochastic.k
+
+    last_candle = Candle.new(data[0])
+    ema200 = moving_average.ema(200, data)
+    stochastic.calculate(data)
+    yesterday_macd = Macd.new(yesterday)
+    yesterday_stochastic = Stochastic.new
+    yesterday_stochastic.calculate(yesterday)
+
+    # BUY
+    # Buy to open stocks when all the following criteria are met,
+    #
+    # 1.The stock is greater than its 200-day Moving Average
+    # 2.The MACD value crosses signal from bottom
+    # 3.The Stochastic Oscillator is less than 50 and this reading is also heading higher
+
+    # 1.The stock is greater than its 200-day Moving Average
+    if last_candle.close >= ema200
+      # 2.The MACD value crosses signal from bottom
+      if (yesterday_macd.value < macd.value) && (yesterday_macd.signal > yesterday_macd.value) && (macd.value > macd.signal)
+        # 3.The Stochastic Oscillator is less than 50 and this reading is also heading higher
+        if yesterday_stochastic.k < 50
+          levels = [{ :buy_stop => last_candle.close, :stop_loss => ema200 - 0.02, :macd => macd.value, :signal => macd.signal, :gistogram => macd.gistogram, :stochastic => stochastic.k, :ema200 => ema200 }].to_json
+          save_setup(item,data,'MACD_STOCHASTIC','BUY Close short positions',levels)
+        end
+      end
+    end
+
+    # SELL
+    # Sell to open stocks when all the following criteria are met,
+    #
+    # 1.The stock is less than its 200-day Moving Average
+    # 2.The MACD value crosses signal from top
+    # 3.The Stochastic Oscillator is greater than 50 and this reading is also heading lower
+
+    # 1.The stock is less than its 200-day Moving Average
+    if last_candle.close <= ema200
+      # 2.The MACD value crosses signal from top
+      if (yesterday_macd.value > macd.value) && (yesterday_macd.signal < yesterday_macd.value) && (macd.value < macd.signal)
+        # 3.The Stochastic Oscillator is greater than 50 and this reading is also heading higher
+        if yesterday_stochastic.k > 50
+          levels = [{ :sell_stop => last_candle.close, :stop_loss => ema200 + 0.02, :macd => macd.value, :signal => macd.signal, :gistogram => macd.gistogram, :stochastic => stochastic.k, :ema200 => ema200 }].to_json
+          save_setup(item,data,'MACD_STOCHASTIC','SELL Close long positions',levels)
+        end
+      end
+    end
+  end
+
+
+
+
+  def MACD(data, item)
+    last_candle = Candle.new(data[0])
+    macd = Macd.new(data)
+    yesterday_data = data.drop(1)
+    yesterday_macd = Macd.new(yesterday_data)
+
+    puts 'MACD'
+    puts item.name
+    puts data[0].date.to_s
+    puts 'macd'
+    puts macd.value
+    puts 'signal'
+    puts macd.signal
+    puts '====================='
+
+    # if yesterday_macd.value <= yesterday_macd.signal && macd.value >= macd.signal
+    #   levels = [{ :buy_stop => last_candle.high + 0.02, :stop_loss => last_candle.low - 0.02 }].to_json
+    #   save_setup(item,data,'MACD','BUY Close short positions',levels)
+    # end
+  end
+
+  def STOCHASTIC(data, item)
+    last_candle = Candle.new(data[0])
+
+    stochastic = Stochastic.new(data)
+
+    puts 'STOCHASTIC'
+    puts item.name
+    puts data[0].date.to_s
+    puts '%K'
+    puts stochastic.k
+    puts '====================='
+
+    # if yesterday_macd.value <= yesterday_macd.signal && macd.value >= macd.signal
+    #   levels = [{ :buy_stop => last_candle.high + 0.02, :stop_loss => last_candle.low - 0.02 }].to_json
+    #   save_setup(item,data,'MACD','BUY Close short positions',levels)
+    # end
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  def THREE_LINE_STRIKE_BULL(data, item)
+    last_candle = Candle.new(data[0])
+    prev_1_candle = Candle.new(data[1])
+    prev_2_candle = Candle.new(data[2])
+    prev_3_candle = Candle.new(data[3])
+
+    # Если тенденция понижающаяся
+    moving_average = MovingAverage.new(65, data)
+    if moving_average.value >= last_candle.close
+      if prev_1_candle.is_sell && prev_2_candle.is_sell && prev_3_candle.is_sell && last_candle.is_buy
+        if last_candle.open <= prev_1_candle.close && last_candle.open <= prev_2_candle.close && last_candle.open <= prev_3_candle.close
+          if last_candle.close >= prev_1_candle.open && last_candle.close >= prev_2_candle.open && last_candle.close >= prev_3_candle.open
+            if prev_1_candle.close <= prev_2_candle.close && prev_2_candle.close <= prev_3_candle.close
+              levels = [{ :buy_stop => last_candle.high + 0.02, :stop_loss => last_candle.low - 0.02 }].to_json
+              save_setup(item,data,'THREE_LINE_STRIKE_BULL','BUY Close short positions',levels)
+            end
+          end
+        end
+      end
+    end
+  end
+
+  def THREE_LINE_STRIKE_BEAR(data, item)
+    last_candle = Candle.new(data[0])
+    prev_1_candle = Candle.new(data[1])
+    prev_2_candle = Candle.new(data[2])
+    prev_3_candle = Candle.new(data[3])
+
+    # Если тенденция повышающаяся
+    moving_average = MovingAverage.new(65, data)
+    if moving_average.value <= last_candle.close
+      if prev_1_candle.is_buy && prev_2_candle.is_buy && prev_3_candle.is_buy && last_candle.is_sell
+        if last_candle.open >= prev_1_candle.close && last_candle.open >= prev_2_candle.close && last_candle.open >= prev_3_candle.close
+          if last_candle.close <= prev_1_candle.open && last_candle.close <= prev_2_candle.open && last_candle.close <= prev_3_candle.open
+            if prev_1_candle.close >= prev_2_candle.close && prev_2_candle.close >= prev_3_candle.close
+              levels = [{ :sell_stop => last_candle.low - 0.02, :stop_loss => last_candle.high + 0.02 }].to_json
+              save_setup(item,data,'THREE_LINE_STRIKE_BEAR','SELL Close long positions',levels)
+            end
+          end
+        end
+      end
+    end
+  end
+
+  def THREE_BLACK_CROWS(data, item)
+    last_candle = Candle.new(data[0])
+    prev_1_candle = Candle.new(data[1])
+    prev_2_candle = Candle.new(data[2])
+    prev_3_candle = Candle.new(data[3])
+
+    # Если тенденция повышающаяся
+    moving_average = MovingAverage.new(65, data)
+    #if moving_average.value <= last_candle.close
+      if prev_3_candle.is_buy && prev_1_candle.is_sell && prev_2_candle.is_sell && last_candle.is_sell
+        if !prev_3_candle.is_doji && !prev_2_candle.is_doji && !prev_1_candle.is_doji
+          if prev_2_candle.open <= prev_3_candle.close && prev_2_candle.open > prev_3_candle.open
+            if prev_1_candle.open < prev_3_candle.close && prev_1_candle.open > prev_3_candle.open
+              if last_candle.close < prev_1_candle.close && prev_1_candle.close < prev_2_candle.close
+                levels = [{ :sell_stop => last_candle.low - 0.02, :stop_loss => last_candle.high + 0.02 }].to_json
+                save_setup(item,data,'THREE_BLACK_CROWS','SELL Close long positions',levels)
+              end
+            end
+          end
+        end
+      end
+    #end
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   def DOJI(data, item)
     prev_before_candle = Candle.new(data[2])
     prev_candle = Candle.new(data[1])
     last_candle = Candle.new(data[0])
+
+    # Продолжение тенденции
     if last_candle.is_doji
       # Если тенденция понижающаяся
       moving_average = MovingAverage.new(65, data)
       if moving_average.value >= last_candle.close
-        if prev_candle.low >= last_candle.low && prev_before_candle.low >= last_candle.low
-          levels = [{ :buy_stop => last_candle.high + 0.02, :stop_loss => last_candle.low - 0.02 }].to_json
-          save_setup(item,data,'DOJI','BUY Close short positions',levels)
-        end
+        levels = [{ :sell_stop => last_candle.low - 0.02, :stop_loss => last_candle.high + 0.02 }].to_json
+        save_setup(item,data,'DOJI','SELL Close long positions',levels)
       end
       # Если тенденция повыщающаяся
       moving_average = MovingAverage.new(65, data)
       if moving_average.value <= last_candle.close
-        if prev_candle.high <= last_candle.high && prev_before_candle.high <= last_candle.high
-          levels = [{ :sell_stop => last_candle.low - 0.02, :stop_loss => last_candle.high + 0.02 }].to_json
-          save_setup(item,data,'DOJI','SELL Close long positions',levels)
-        end
-      end
-    end
-  end
-
-  def HARAMI(data, item)
-    last_candle = Candle.new(data[0])
-    prev_candle = Candle.new(data[1])
-    moving_average = MovingAverage.new(65, data)
-    # Если тенденция нисходящая
-    if moving_average.value >= last_candle.close
-      if prev_candle.is_buy && prev_candle.open < last_candle.close && prev_candle.open < last_candle.open && prev_candle.close > last_candle.close && prev_candle.close > last_candle.open
-        levels = [{ :sell_stop => last_candle.low - 0.02, :stop_loss => last_candle.high + 0.02 }].to_json
-        save_setup(item,data,'HARAMI','SELL',levels)
-      end
-    end
-    # Если тенденция восходящая
-    if moving_average.value <= last_candle.close
-      if prev_candle.is_sell && prev_candle.open > last_candle.close && prev_candle.open > last_candle.open && prev_candle.close < last_candle.close && prev_candle.close < last_candle.open
         levels = [{ :buy_stop => last_candle.high + 0.02, :stop_loss => last_candle.low - 0.02 }].to_json
-        save_setup(item,data,'HARAMI','BUY',levels)
+        save_setup(item,data,'DOJI','BUY Close short positions',levels)
       end
     end
-  end
 
-  def ENGULFING(data, item)
-    last_candle = Candle.new(data[0])
-    prev_candle = Candle.new(data[1])
-    moving_average = MovingAverage.new(65, data)
-
-    # Если тенденция нисходящая
-    if moving_average.value >= last_candle.close
-      # Close short positions
-      if last_candle.is_buy
-        if last_candle.open < prev_candle.low && last_candle.open < prev_candle.high && last_candle.close > prev_candle.high && last_candle.close > prev_candle.low
-          levels = [{ :stop_loss => last_candle.high + 0.02 }].to_json
-          save_setup(item,data,'ENGULFING','Close short positions',levels)
+    if prev_candle.is_doji
+      # Если тенденция понижающаяся
+      moving_average = MovingAverage.new(65, data)
+      if moving_average.value >= prev_candle.close
+        if prev_candle.low < prev_before_candle.low && prev_candle.low < last_candle.low
+          if last_candle.is_buy
+            levels = [{ :buy_stop => last_candle.high + 0.02, :stop_loss => last_candle.low - 0.02 }].to_json
+            save_setup(item,data,'DOJI','BUY Close short positions',levels)
+          end
         end
       end
-      # Open short position
-      if last_candle.is_sell
-        if last_candle.open > prev_candle.low && last_candle.open > prev_candle.high && last_candle.close < prev_candle.high && last_candle.close < prev_candle.low
-          levels = [{ :sell_stop => last_candle.low - 0.02, :stop_loss => last_candle.high + 0.02 }].to_json
-          save_setup(item,data,'ENGULFING','Sell',levels)
-        end
-      end
-    end
-    # Если тенденция восходящая
-    if moving_average.value <= last_candle.close
-      # Close long positions
-      if last_candle.is_sell
-        if last_candle.open > prev_candle.low && last_candle.open > prev_candle.high && last_candle.close < prev_candle.high && last_candle.close < prev_candle.low
-          levels = [{ :stop_loss => last_candle.low - 0.02 }].to_json
-          save_setup(item,data,'ENGULFING','Close long positions',levels)
-        end
-      end
-      # Open long positions
-      if last_candle.is_buy
-        if last_candle.open < prev_candle.low && last_candle.open < prev_candle.high && last_candle.close > prev_candle.high && last_candle.close > prev_candle.low
-          levels = [{ :buy_stop => last_candle.high + 0.02, :stop_loss => last_candle.low - 0.02 }].to_json
-          save_setup(item,data,'ENGULFING','Buy',levels)
+      # Если тенденция повыщающаяся
+      moving_average = MovingAverage.new(65, data)
+      if moving_average.value <= prev_candle.close
+        if prev_candle.high > prev_before_candle.high && prev_candle.high > last_candle.high
+          if last_candle.is_sell
+            levels = [{ :sell_stop => last_candle.low - 0.02, :stop_loss => last_candle.high + 0.02 }].to_json
+            save_setup(item,data,'DOJI','SELL Close long positions',levels)
+          end
         end
       end
     end
@@ -92,17 +282,17 @@ class Pattern < ActiveRecord::Base
     prev_candle = Candle.new(data[1])
     moving_average = MovingAverage.new(65, data)
 
-    # Если тенденция восходящая
-    if moving_average.value <= last_candle.close
-      if last_candle.is_sell && prev_candle.is_buy
-        if last_candle.open > prev_candle.high && prev_candle.open < last_candle.close
-          if last_candle.close <= prev_candle.middle
-            levels = [{ :sell_stop => last_candle.low - 0.02, :stop_loss => last_candle.high + 0.02 }].to_json
-            save_setup(item,data,'DARK_CLOUD_COVER','Sell Close long positions',levels)
-          end
-        end
-      end
-    end
+    # # Если тенденция восходящая
+    # if moving_average.value <= last_candle.close
+    #   if last_candle.is_sell && prev_candle.is_buy
+    #     if last_candle.open > prev_candle.high && prev_candle.open < last_candle.close
+    #       if last_candle.close <= prev_candle.middle
+    #         levels = [{ :sell_stop => last_candle.low - 0.02, :stop_loss => last_candle.high + 0.02 }].to_json
+    #         save_setup(item,data,'DARK_CLOUD_COVER','Sell Close long positions',levels)
+    #       end
+    #     end
+    #   end
+    # end
   end
 
   def PIERCING(data, item)
@@ -111,16 +301,16 @@ class Pattern < ActiveRecord::Base
     moving_average = MovingAverage.new(65, data)
 
     # Если тенденция нисходящая
-    if moving_average.value >= last_candle.close
-      if last_candle.is_buy && prev_candle.is_sell
-        if last_candle.open < prev_candle.low && prev_candle.open > last_candle.close
-          if last_candle.close >= prev_candle.middle
-            levels = [{ :buy_stop => last_candle.high + 0.02, :stop_loss => last_candle.low - 0.02 }].to_json
-            save_setup(item,data,'PIERCING','Buy Close short positions',levels)
-          end
-        end
-      end
-    end
+    # if moving_average.value >= last_candle.close
+    #   if last_candle.is_buy && prev_candle.is_sell
+    #     if last_candle.open < prev_candle.low && prev_candle.open > last_candle.close
+    #       if last_candle.close >= prev_candle.middle
+    #         levels = [{ :buy_stop => last_candle.high + 0.02, :stop_loss => last_candle.low - 0.02 }].to_json
+    #         save_setup(item,data,'PIERCING','Buy Close short positions',levels)
+    #       end
+    #     end
+    #   end
+    # end
   end
 
   def HAMMER(data, item)
@@ -237,6 +427,87 @@ class Pattern < ActiveRecord::Base
       end
     end
   end
+
+  def HARAMI(data, item)
+    last_candle = Candle.new(data[0])
+    prev_candle = Candle.new(data[1])
+    moving_average = MovingAverage.new(65, data)
+    # # Если тенденция нисходящая
+    # if moving_average.value >= last_candle.close
+    #   if prev_candle.is_buy && prev_candle.open < last_candle.close && prev_candle.open < last_candle.open && prev_candle.close > last_candle.close && prev_candle.close > last_candle.open
+    #     levels = [{ :sell_stop => last_candle.low - 0.02, :stop_loss => last_candle.high + 0.02 }].to_json
+    #     save_setup(item,data,'HARAMI','SELL',levels)
+    #   end
+    # end
+    # # Если тенденция восходящая
+    # if moving_average.value <= last_candle.close
+    #   if prev_candle.is_sell && prev_candle.open > last_candle.close && prev_candle.open > last_candle.open && prev_candle.close < last_candle.close && prev_candle.close < last_candle.open
+    #     levels = [{ :buy_stop => last_candle.high + 0.02, :stop_loss => last_candle.low - 0.02 }].to_json
+    #     save_setup(item,data,'HARAMI','BUY',levels)
+    #   end
+    # end
+  end
+
+  def ENGULFING(data, item)
+    last_candle = Candle.new(data[0])
+    prev_candle = Candle.new(data[1])
+    prev_before_candle = Candle.new(data[2])
+    moving_average = MovingAverage.new(65, data)
+
+    # Если тенденция нисходящая
+    if moving_average.value >= last_candle.close
+      # Close short positions
+      # if last_candle.is_buy && prev_candle.is_sell
+      #   if last_candle.open < prev_candle.close && last_candle.close > prev_candle.open
+      #     if last_candle.volume > prev_candle.volume
+      #       if last_candle.low < prev_candle.low && prev_candle.low < prev_before_candle.low
+      #         levels = [{ :buy_stop => last_candle.high + 0.02, :stop_loss => last_candle.low - 0.02 }].to_json
+      #         save_setup(item,data,'ENGULFING','Buy Close short positions',levels)
+      #       end
+      #     end
+      #   end
+      # end
+      # Open short position
+      # if last_candle.is_sell && prev_candle.is_buy
+      #   if last_candle.open > prev_candle.close && last_candle.close < prev_candle.open
+      #     if last_candle.volume > prev_candle.volume
+      #       if last_candle.high > prev_candle.high && prev_candle.high > prev_before_candle.high
+      #         levels = [{ :sell_stop => last_candle.low - 0.02, :stop_loss => last_candle.high + 0.02 }].to_json
+      #         save_setup(item,data,'ENGULFING','Sell',levels)
+      #       end
+      #     end
+      #   end
+      # end
+    end
+    # Если тенденция восходящая
+    if moving_average.value <= last_candle.close
+      # Close long positions
+      # if last_candle.is_sell && prev_candle.is_buy
+      #   if last_candle.open > prev_candle.close && last_candle.close < prev_candle.open
+      #     if last_candle.volume > prev_candle.volume
+      #       if last_candle.high > prev_candle.high && prev_candle.high > prev_before_candle.high
+      #         levels = [{ :sell_stop => last_candle.low - 0.02, :stop_loss => last_candle.high + 0.02 }].to_json
+      #         save_setup(item,data,'ENGULFING','Sell Close long positions',levels)
+      #       end
+      #     end
+      #   end
+      # end
+      # Open long positions
+      # if last_candle.is_buy && prev_candle.is_sell
+      #   if last_candle.open < prev_candle.close && last_candle.close > prev_candle.open
+      #     if last_candle.volume > prev_candle.volume
+      #       if last_candle.low < prev_candle.low && prev_candle.low < prev_before_candle.low
+      #         levels = [{ :buy_stop => last_candle.high + 0.02, :stop_loss => last_candle.low - 0.02 }].to_json
+      #         save_setup(item,data,'ENGULFING','Buy',levels)
+      #       end
+      #     end
+      #   end
+      # end
+    end
+  end
+
+
+
 
 
 

@@ -1,14 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Symbol:</strong>
-  <%= @item.symbol %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @item.name %>
-</p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<% content_for :title, @item.name + ' | Finance Assistant' %>
+<div class="page-header">
+  <h1><%= @item.name %></h1>
+</div>
+<br>
+<table class="table table-show">
+  <tr>
+    <td>Symbol: <strong><%= @item.symbol %></strong></td><td>&nbsp;</td>
+  </tr>
+</table>
+<div>
+  <%= render :partial => 'highchart', :locals => { :item => @item, :width => '100%', :height => '650px', :selected => 1 } %>
+</div>

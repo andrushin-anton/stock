@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :update, :destroy]
 
   # GET /items
   # GET /items.json
@@ -10,6 +10,10 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @item = Item.find_by_symbol(params[:symbol])
+    Price.table_name = 'D_' + params[:symbol]
+    @item.create_attr('quotes')
+    @item.quotes = Price.order('date desc').first(500).reverse
   end
 
   # GET /items/new
