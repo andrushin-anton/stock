@@ -3,32 +3,66 @@
   <h1><%= @setup.name %> <small><%= @setup.datetime.strftime('%B %d, %Y') %></small></h1>
 </div>
 <br>
-<table class="table table-show">
-<tr>
-  <td>Symbol: <strong><%= @setup.symbol %></strong></td><td>&nbsp;</td><td>Pattern: <strong><%= @setup.pattern %></strong></td></td><td>&nbsp;</td><td>Exchange: <strong><%= @setup.item.market %></strong></td>
-</tr>
-<% levels = JSON.parse @setup.levels %>
-  <% levels.each do |level| %>
-      <% if level.has_key?('buy_stop') || level.has_key?('stop_loss') %>
-          <tr>
-            <% if level.has_key?('buy_stop')%><td>Buy Stop: <strong><%= level['buy_stop'].round(2) %></strong></td><td>&nbsp;</td><% end %><% if level.has_key?('stop_loss') %><td>Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong></td><% end %><td>&nbsp;</td><td>&nbsp;</td>
-          </tr>
-      <% end %>
-      <% if level.has_key?('sell_stop') %>
-          <tr>
-            <td>Sell Stop: <strong><%= level['sell_stop'].round(2) %></strong></td><td>&nbsp;</td><td>Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong></td><td>&nbsp;</td><td>&nbsp;</td>
-          </tr>
-      <% end %>
-  <% end %>
-</table>
-<h4><%= @setup.direction%></h4>
-<p>
-  <%= @setup.levels %>
-</p>
 <div>
-  <%= render :partial => 'highchart', :locals => { :setup => @setup, :width => '100%', :height => '650px', :selected => 1 } %>
+  <table class="table">
+    <tr>
+      <td>
+      <h4 class="<%= @setup.direction %>">
+        <% if @setup.direction == 'BUY_SELL' %>
+            <span class="BUY">BUY</span> / <span class="SELL">SELL</span>
+        <% else %>
+            <%= @setup.direction %>
+        <% end %>
+      </h4>
+      <p>
+        Symbol: <strong><%= @setup.symbol %></strong>&nbsp;Exchange: <strong><%= @setup.item.market %></strong>
+      </p>
+      <p>
+        <% levels = JSON.parse @setup.levels %>
+        <% levels.each do |level| %>
+            <% if level.has_key?('buy_stop') %>
+                <i>
+                  Buy Stop: <strong><%= level['buy_stop'].round(2) %></strong>&nbsp;Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong>&nbsp;Take profit: <strong><%= level['take_profit'].round(2) %></strong>
+                </i>
+            <% end %>
+            <% if level.has_key?('sell_stop') %>
+                <i>
+                  Sell Stop: <strong><%= level['sell_stop'].round(2) %></strong>&nbsp;Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong>&nbsp;Take profit: <strong><%= level['take_profit'].round(2) %></strong>
+                </i>
+            <% end %>
+            <% if level.has_key?('macd') %>
+                <p>
+                  MACD: Value: <%= level['macd'] %>&nbsp;Signal: <%= level['signal'] %>&nbsp;Gistogram: <%= level['gistogram'] %>&nbsp;
+                </p>
+            <% end %>
+            <% if level.has_key?('stochastic') %>
+                <p>
+                  Stochastic: K: <%= level['stochastic'] %>
+                </p>
+            <% end %>
+            <% if level.has_key?('sma200') %>
+                <p>
+                  SMA200: Value: <%= level['sma200'] %>
+                </p>
+            <% end %>
+        <% end %>
+      </p>
+  </td>
+      <td>
+        <h4>&nbsp;</h4>
+        <table class="table" id="mm_<%= @setup.symbol%>_<%= @setup.pattern_object.name%>_<%= @setup.datetime.to_time.to_i%>">
+          <tr><td>Account size <small>with overnight margin</small>: </td><td><input type="text" class="form-control total_money" placeholder="100000" onkeyup="calculate_total('mm_<%= @setup.symbol%>_<%= @setup.pattern_object.name%>_<%= @setup.datetime.to_time.to_i%>', '<%= @setup.direction %>', '<%= @setup.levels %>')"></td></tr>
+          <tr><td>Max risk %: </td><td><input type="text" class="form-control risk_percent" value="2"></td></tr>
+          <tr><td style="border-bottom: 0px">Number of shares: </td><td style="border-bottom: 0px"><span class="shares">0</span></tr>
+          <tr><td style="border-bottom: 0px">Profit: </td><td style="border-bottom: 0px"><span class="profit">0</span></tr>
+          <tr><td style="border-bottom: 0px">Risk: </td><td style="border-bottom: 0px"><span class="risk">0</span></tr>
+        </table>
+      </td>
+  </tr>
+  </table>
 </div>
 <br>
-<p>
-  <strong><%= @setup.pattern_object.name %></strong> - <%= @setup.pattern_object.description %>
-</p>
+<div>
+  <%= render :partial => 'amchart', :locals => { :setup => @setup, :width => '100%', :height => '500px', :selected => 1 } %>
+</div>
+<br>

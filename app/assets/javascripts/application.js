@@ -53,3 +53,49 @@ function hasScrolled() {
 
     lastScrollTop = st;
 }
+
+function calculate_total(id, direction, levels)
+{
+    var $this = $('#'+id);
+    var total_money = parseFloat($this.find('.total_money').val());
+    var risk_percent = parseFloat($this.find('.risk_percent').val());
+    var risk = risk_percent / 100;
+    var absolute_risk = total_money * risk;
+
+    var parsed_levels = JSON.parse(levels);
+    if (direction === 'BUY') {
+        var points = parseFloat(parsed_levels[0].buy_stop) - parseFloat(parsed_levels[0].stop_loss);
+        //profit = take_profit - buy_stop
+        var profit = parseFloat(parsed_levels[0].take_profit) - parseFloat(parsed_levels[0].buy_stop);
+        //risk = buy_stop - stop_loss
+        var risk = parseFloat(parsed_levels[0].buy_stop) - parseFloat(parsed_levels[0].stop_loss);
+    } else {
+        var points = parseFloat(parsed_levels[0].stop_loss) - parseFloat(parsed_levels[0].sell_stop);
+        //profit = sell_stop - take_profit
+        var profit = parseFloat(parsed_levels[0].sell_stop) - parseFloat(parsed_levels[0].take_profit);
+        //risk = stop_loss - sell_stop
+        var risk = parseFloat(parsed_levels[0].stop_loss) - parseFloat(parsed_levels[0].sell_stop);
+    }
+    //number of shares = absolute risk / point of distanse between entry and s-l
+    var shares = (absolute_risk / points).toFixed();
+
+    if (shares !== 'NaN') {
+        $this.find('.shares').html(shares);
+        $this.find('.profit').html((profit * shares).toFixed());
+        $this.find('.risk').html((risk * shares).toFixed());
+    }
+}
+
+$(document).ready(function() {
+    $('.mm .total_money').keyup(function(){
+        var total_money = parseInt($(this).val());
+        var risk_percent = parseInt($(this).parent().parent().next().find('.risk_percent').val());
+
+        //if (total_money !== NaN && risk_percent !== NaN) {
+            //number of shares = absolute risk / point of distanse between entry and s-l
+
+            var number_of_shares = 2;
+            $(this).parent().next().find('.shares').val(number_of_shares);
+        //}
+    });
+});

@@ -23,24 +23,18 @@ namespace :worker do
 
   task run_history_d: :environment do
     Item.all().each do |item|
-      if item.symbol == 'AA'
-        puts 'found AA'
-
-        Price.table_name = 'D_'+item.symbol
-
-        ('2013-01-01'.to_datetime.to_i .. DateTime.yesterday.strftime('%Y-%m-%d').to_datetime.to_i).step(1.day) do |date|
-          ten_days_data = Price.where('date <= ?', Time.at(date).to_datetime).order('date desc').first(300)
-          if ten_days_data.length > 1
-            # Loop through all of the existing pattens
-            Pattern.all().each do |pattern|
-              if pattern.respond_to? pattern.name
-                # Make analysis if this stock applies current pattern
-                pattern.send(pattern.name, ten_days_data, item)
-              end
+      Price.table_name = 'D_'+item.symbol
+      ('2013-01-01'.to_datetime.to_i .. DateTime.yesterday.strftime('%Y-%m-%d').to_datetime.to_i).step(1.day) do |date|
+        ten_days_data = Price.where('date <= ?', Time.at(date).to_datetime).order('date desc').first(300)
+        if ten_days_data.length > 1
+          # Loop through all of the existing pattens
+          Pattern.all().each do |pattern|
+            if pattern.respond_to? pattern.name
+              # Make analysis if this stock applies current pattern
+              pattern.send(pattern.name, ten_days_data, item)
             end
           end
         end
-
       end
     end
   end

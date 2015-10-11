@@ -88,6 +88,7 @@ namespace :scraper do
       download = open('http://real-chart.finance.yahoo.com/table.csv?s='+ symbol +'&a=11&b=12&c=1980&d='+ Date.today.strftime('%m') +'&e='+ Date.today.strftime('%d') +'&f='+ Date.today.strftime('%Y') +'&g=d&ignore=.csv')
       IO.copy_stream(download, 'db/history/'+ symbol +'.csv')
 
+      #create stock table if not exists
       unless ActiveRecord::Base.connection.table_exists?('D_'+symbol)
         ActiveRecord::Base.connection.create_table 'D_'+symbol do |t|
           t.datetime :date

@@ -11,7 +11,7 @@ class MovingAverage
     for index in 0 ... days_for_loop
       average_sum = average_sum + quotes[index].close
     end
-    return (average_sum / days).round(2)
+    return (average_sum / days_for_loop).round(2)
   end
 
   def ema(days, quotes)

@@ -8,7 +8,7 @@ class SetupsController < ApplicationController
     @setups.each do |setup|
       Price.table_name = 'D_' + setup.symbol
       setup.create_attr('quotes')
-      setup.quotes = Price.where('date <= ?', Time.at(setup.datetime - 1.day).to_datetime).order('date desc').first(300).reverse
+      setup.quotes = Price.where('date <= ?', Time.at(setup.datetime - 1.day).to_datetime).order('date desc').first(100).reverse
       @setups << setup
     end
   end
@@ -41,7 +41,7 @@ class SetupsController < ApplicationController
     @setup = Setup.find_by_slug(params[:id]) or not_found
     Price.table_name = 'D_' + @setup.symbol
     @setup.create_attr('quotes')
-    @setup.quotes = Price.where('date <= ?', Time.at(@setup.datetime + 20.days).to_datetime).order('date desc').first(300).reverse
+    @setup.quotes = Price.where('date <= ?', Time.at(@setup.datetime + 60.days).to_datetime).order('date desc').first(150).reverse
   end
 
   # GET /setups/new
