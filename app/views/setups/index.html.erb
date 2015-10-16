@@ -31,23 +31,34 @@
                       Sell Stop: <strong><%= level['sell_stop'].round(2) %></strong>&nbsp;Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong>&nbsp;Take profit: <strong><%= level['take_profit'].round(2) %></strong>
                     </i>
                 <% end %>
-                <% if level.has_key?('macd') %>
-                    <p>
-                      MACD: Value: <%= level['macd'] %>&nbsp;Signal: <%= level['signal'] %>&nbsp;Gistogram: <%= level['gistogram'] %>&nbsp;
-                    </p>
-                <% end %>
-                <% if level.has_key?('stochastic') %>
-                    <p>
-                      Stochastic: K: <%= level['stochastic'] %>
-                    </p>
-                <% end %>
-                <% if level.has_key?('sma200') %>
-                    <p>
-                      SMA200: Value: <%= level['sma200'] %>
-                    </p>
-                <% end %>
             <% end %>
             </p>
+              <p>
+                <% unless setup.item.description.nil? %>
+                <% desc = JSON.parse setup.item.description %>
+
+                    <% if desc.has_key?('Company_Info') %>
+                        <i>Company Info</i>
+                        <% company = desc['Company_Info'] %>
+                        <% if company.has_key?('CEO') %>
+                            <p>CEO: <%= company['CEO'] %></p>
+                        <% end %>
+                        <% if company.has_key?('Industry') %>
+                            <p>Industry: <%= company['Industry'] %></p>
+                        <% end %>
+                        <% if company.has_key?('Sector') %>
+                            <p>Sector: <%= company['Sector'] %></p>
+                        <% end %>
+                        <% if company.has_key?('HQ_Location') %>
+                            <p>HQ Location: <%= company['HQ_Location'] %></p>
+                        <% end %>
+                        <% if company.has_key?('Website') %>
+                            <p>Website: <%= company['Website'] %></p>
+                        <% end %>
+                    <% end %>
+
+                <% end %>
+                </p>
           </td>
           <td>
             <h4>&nbsp;</h4>

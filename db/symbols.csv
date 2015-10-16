@@ -1,50 +1,101 @@
-AA,Alcoa Inc.,NYSE
-BA,The Boeing Company,NYSE
-AAPL,Apple Inc.,NasdaqGS
-AMZN,Amazon.com Inc.,NasdaqGS
-KO,The Coca-Cola Company,NYSE
-MCD,McDonald's Corp.,NYSE
-SBUX,Starbucks Corporation,NasdaqGS
-HPQ,Hewlett-Packard Company,NYSE
-MSFT,Microsoft Corporation,NasdaqGS
-GOOG,Google Inc.,NasdaqGS
-FB,"Facebook, Inc.",NasdaqGS
-TWTR,"Twitter, Inc.",NYSE
-DDD,3D Systems Corporation,NYSE
-MMM,3M Company,NYSE
-XXII,"22nd Century Group, Inc.",NYSE
-BAC,Bank of America Corporation,NYSE
-T,"AT&T, Inc.",NYSE
-AXP,American Express Company,NYSE
-BP,BP p.l.c.,NYSE
-BAX,Baxter International Inc.,NYSE
-X,United States Steel Corp.,NYSE
-XOM,Exxon Mobil Corporation,NYSE
-HAL,Halliburton Company,NYSE
-F,Ford Motor Co.,NYSE
-WFC,Wells Fargo & Company,NYSE
-FDX,FedEx Corporation,NYSE
-DIS,The Walt Disney Company,NYSE
-PG,The Procter & Gamble Company,NYSE
-JNJ,Johnson & Johnson,NYSE
-GE,General Electric Company,NYSE
-V,Visa Inc.,NYSE
-WMT,Wal-Mart Stores Inc.,NYSE
-VZ,Verizon Communications Inc.,NYSE
-UTX,United Technologies Corporation,NYSE
-UNH,UnitedHealth Group Incorporated,NYSE
-TRV,"The Travelers Companies, Inc.",NYSE
-PFE,Pfizer Inc.,NYSE
-NKE,"NIKE, Inc.",NYSE
-MRK,Merck & Co. Inc.,NYSE
-JPM,JPMorgan Chase & Co.,NYSE
-JNJ,Johnson & Johnson,NYSE
-IBM,International Business Machines Corporation,NYSE
-INTC,Intel Corporation,NasdaqGS
-HD,"The Home Depot, Inc.",NYSE
-GS,"The Goldman Sachs Group, Inc.",NYSE
-XOM,Exxon Mobil Corporation,NYSE
-DFT,"DuPont Fabros Technology, Inc.",NYSE
-CSCO,"Cisco Systems, Inc.",NasdaqGS
-CVX,Chevron Corporation,NYSE
-CAT,Caterpillar Inc.,NYSE
+AA,Alcoa Inc.,NYSE,
+BA,The Boeing Company,NYSE,
+AAPL,Apple Inc.,NasdaqGS,"{""Company_Info"":{""CEO"":""Timothy D. Cook"",""Industry"":""Computers, Office Equipment"",""Sector"":""Technology"",""HQ_Location"":""Cupertino, CA"",""Website"":""http://www.apple.com""}}"
+AMZN,Amazon.com Inc.,NasdaqGS,
+KO,The Coca-Cola Company,NYSE,
+MCD,McDonald's Corp.,NYSE,
+SBUX,Starbucks Corporation,NasdaqGS,
+HPQ,Hewlett-Packard Company,NYSE,
+MSFT,Microsoft Corporation,NasdaqGS,
+GOOG,Google Inc.,NasdaqGS,
+FB,"Facebook, Inc.",NasdaqGS,
+TWTR,"Twitter, Inc.",NYSE,
+DDD,3D Systems Corporation,NYSE,
+MMM,3M Company,NYSE,
+XXII,"22nd Century Group, Inc.",NYSE,
+BAC,Bank of America Corporation,NYSE,
+T,"AT&T, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Randall L. Stephenson"",""Industry"":""Telecommunications"",""Sector"":""Telecommunications"",""HQ_Location"":""Dallas, TX"",""Website"":""http://www.att.com""}}"
+AXP,American Express Company,NYSE,
+BP,BP p.l.c.,NYSE,
+BAX,Baxter International Inc.,NYSE,
+X,United States Steel Corp.,NYSE,
+XOM,Exxon Mobil Corporation,NYSE,
+HAL,Halliburton Company,NYSE,
+F,Ford Motor Co.,NYSE,"{""Company_Info"":{""CEO"":""Mark Fields"",""Industry"":""Motor Vehicles and Parts"",""Sector"":""	Motor Vehicles & Parts"",""HQ_Location"":""Dearborn, MI"",""Website"":""http://www.ford.com""}}"
+WFC,Wells Fargo & Company,NYSE,
+FDX,FedEx Corporation,NYSE,
+DIS,The Walt Disney Company,NYSE,
+PG,The Procter & Gamble Company,NYSE,
+JNJ,Johnson & Johnson,NYSE,
+GE,General Electric Company,NYSE,"{""Company_Info"":{""CEO"":""Jeffrey R. Immelt"",""Industry"":""Diversified Financials"",""Sector"":""Financials"",""HQ_Location"":""Fairfield, CT"",""Website"":""http://www.ge.com""}}"
+V,Visa Inc.,NYSE,
+WMT,Wal-Mart Stores Inc.,NYSE,"{""Company_Info"":{ ""CEO"":""C. Douglas McMillon"", ""Industry"":""General Merchandisers"",""Sector"":""Retailing"",""HQ_Location"":""Bentonville, AR"",""Website"":""http://www.walmart.com""}}"
+VZ,Verizon Communications Inc.,NYSE,"{""Company_Info"":{""CEO"":""Lowell C. McAdam"",""Industry"":""Telecommunications"",""Sector"":""Telecommunications"",""HQ_Location"":""New York, NY"",""Website"":""http://www.verizon.com""}}"
+UTX,United Technologies Corporation,NYSE,
+UNH,UnitedHealth Group Incorporated,NYSE,"{""Company_Info"":{""CEO"":""Stephen J. Hemsley"",""Industry"":""Health Care: Insurance and Managed Care"",""Sector"":""Health Care"",""HQ_Location"":""Minnetonka, MN"",""Website"":""http://www.unitedhealthgroup.com""}}"
+TRV,"The Travelers Companies, Inc.",NYSE,
+PFE,Pfizer Inc.,NYSE,
+NKE,"NIKE, Inc.",NYSE,
+MRK,Merck & Co. Inc.,NYSE,
+JPM,JPMorgan Chase & Co.,NYSE,
+JNJ,Johnson & Johnson,NYSE,
+IBM,International Business Machines Corporation,NYSE,
+INTC,Intel Corporation,NasdaqGS,
+HD,"The Home Depot, Inc.",NYSE,
+GS,"The Goldman Sachs Group, Inc.",NYSE,
+XOM,Exxon Mobil Corporation,NYSE,"{""Company_Info"":{""CEO"":""Rex W. Tillerson"",""Industry"":""Petroleum Refining"",""Sector"":""Energy"",""HQ_Location"":""Irving, TX"",""Website"":""http://www.exxonmobil.com""}}"
+DFT,"DuPont Fabros Technology, Inc.",NYSE,
+CSCO,"Cisco Systems, Inc.",NasdaqGS,
+CVX,Chevron Corporation,NYSE,"{""Company_Info"":{""CEO"":""John S. Watson"",""Industry"":""Petroleum Refining"",""Sector"":""Energy"",""HQ_Location"":""San Ramon, CA"",""Website"":""http://www.chevron.com""}}"
+CAT,Caterpillar Inc.,NYSE,
+BRK-A,Berkshire Hathaway Inc.,NYSE,"{""Company_Info"":{""CEO"":""Warren E. Buffett"",""Industry"":""Insurance: Property and Casualty (Stock)"",""Sector"":""Financials"",""HQ_Location"":""Omaha, NE"",""Website"":""http://www.berkshirehathaway.com""}}"
+PSX,Phillips 66,NYSE,"{""Company_Info"":{""CEO"":""Greg C. Garland"",""Industry"":""Petroleum Refining"",""Sector"":""Energy"",""HQ_Location"":""Houston, TX"",""Website"":""http://www.phillips66.com""}}"
+CVS,CVS Health Corporation,NYSE,"{""Company_Info"":{""CEO"":""Larry J. Merlo"",""Industry"":""Food and Drug Stores"",""Sector"":""Food & Drug Stores"",""HQ_Location"":""Woonsocket, RI"",""Website"":""http://www.cvshealth.com""}}"
+MCK,McKesson Corporation,NYSE,"{""Company_Info"":{""CEO"":""John H. Hammergren"",""Industry"":""Wholesalers: Health Care"",""Sector"":""Wholesalers"",""HQ_Location"":""San Francisco, CA"",""Website"":""http://www.mckesson.com""}}"
+VLO,Valero Energy Corporation,NYSE,"{""Company_Info"":{""CEO"":""Joseph Gorder"",""Industry"":""Petroleum Refining"",""Sector"":""Energy"",""HQ_Location"":""San Antonio, TX"",""Website"":""http://www.valero.com""}}"
+ABC,AmerisourceBergen Corporation,NYSE,"{""Company_Info"":{""CEO"":""Steven H. Collis"",""Industry"":""Wholesalers: Health Care"",""Sector"":""Wholesalers"",""HQ_Location"":""Chesterbrook, PA"",""Website"":""http://www.amerisourcebergen.com""}}"
+FNMA,Federal National Mortgage Association,NYSE,"{""Company_Info"":{""CEO"":""Timothy J. Mayopoulos"",""Industry"":""Diversified Financials"",""Sector"":""Financials"",""HQ_Location"":""Washington, DC"",""Website"":""http://www.fanniemae.com""}}"
+COST,Costco Wholesale Corporation,NasdaqGS,
+KR,The Kroger Co.,NYSE,
+ESRX,Express Scripts Holding Company,NasdaqGS,
+MPC,Marathon Petroleum Corporation,NYSE,
+CAH,"Cardinal Health, Inc.",NYSE,
+C,Citigroup Inc.,NYSE,
+ADM,Archer-Daniels-Midland Company,NYSE,
+WBA,"Walgreens Boots Alliance, Inc.",NasdaqGS,
+TGT,Target Corp.,NYSE,
+ANTM,"Anthem, Inc.",NYSE,
+MET,"MetLife, Inc.",NYSE,
+CMCSA,Comcast Corporation,NasdaqGS,
+PEP,"Pepsico, Inc.",NYSE,
+AIG,"American International Group, Inc.",NYSE,
+UPS,"United Parcel Service, Inc.",NYSE,
+DOW,The Dow Chemical Company,NYSE,
+AET,Aetna Inc.,NYSE,
+LOW,Lowe's Companies Inc.,NYSE,
+COP,ConocoPhillips,NYSE,
+ETE,"Energy Transfer Equity, L.P.",NYSE,
+PRU,"Prudential Financial, Inc.",NYSE,
+HUM,Humana Inc.,NYSE,
+EPD,Enterprise Products Partners L.P.,NYSE,
+SYY,Sysco Corporation,NYSE,
+IM,Ingram Micro Inc.,NYSE,
+LMT,Lockheed Martin Corporation,NYSE,
+JCI,Johnson Controls Inc.,NYSE,
+PAGP,"Plains GP Holdings, L.P.",NYSE,
+INT,World Fuel Services Corp.,NYSE,
+AAL,American Airlines Group Inc.,NasdaqGS,
+BBY,"Best Buy Co., Inc.",NYSE,
+DAL,"Delta Air Lines, Inc.",NYSE,
+HCA,"HCA Holdings, Inc.",NYSE,
+TSO,Tesoro Corporation,NYSE,
+UAL,"United Continental Holdings, Inc.",NYSE,
+ORCL,Oracle Corporation,NYSE,
+MS,Morgan Stanley,NYSE,
+TSN,"Tyson Foods, Inc.",NYSE,
+DE,Deere & Company,NYSE,
+ALL,The Allstate Corporation,NYSE,
+CI,Cigna Corp.,NYSE,
+MDLZ,"Mondelez International, Inc.",NasdaqGS,
+INTL,INTL FCStone Inc.,NasdaqGS,
+GM,General Motors Company,NYSE,"{""Company_Info"":{""CEO"":""Mary T. Barra"",""Industry"":""Motor Vehicles and Parts"",""Sector"":""Motor Vehicles & Parts"",""HQ_Location"":""Detroit, MI"",""Website"":""http://www.gm.com""}}"

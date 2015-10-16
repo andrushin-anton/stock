@@ -85,9 +85,7 @@ namespace :scraper do
     # Download csv file with history data
     symbols = Item.all().pluck(:symbol)
     symbols.each do |symbol|
-      download = open('http://real-chart.finance.yahoo.com/table.csv?s='+ symbol +'&a=11&b=12&c=1980&d='+ Date.today.strftime('%m') +'&e='+ Date.today.strftime('%d') +'&f='+ Date.today.strftime('%Y') +'&g=d&ignore=.csv')
-      IO.copy_stream(download, 'db/history/'+ symbol +'.csv')
-
+      Price.table_name = 'D_'+symbol
       #create stock table if not exists
       unless ActiveRecord::Base.connection.table_exists?('D_'+symbol)
         ActiveRecord::Base.connection.create_table 'D_'+symbol do |t|
@@ -102,24 +100,29 @@ namespace :scraper do
           t.timestamps null: false
         end
       end
+      #download history data if there is no info in the database
+      if Price.count < 50
+        download = open('http://real-chart.finance.yahoo.com/table.csv?s='+ symbol +'&a=11&b=12&c=1980&d='+ Date.today.strftime('%m') +'&e='+ Date.today.strftime('%d') +'&f='+ Date.today.strftime('%Y') +'&g=d&ignore=.csv')
+        IO.copy_stream(download, 'db/history/'+ symbol +'.csv')
+        download.close()
 
-      Price.table_name = 'D_'+symbol
-      # Migrate data from csv files to the database
-      CSV.foreach('db/history/'+ symbol +'.csv') do |row|
-        unless row[0] == 'Date' || row[0] == ''
-          datetime = Date.strptime(row[0], '%Y-%m-%d')
-          last_year = Date.today
-          last_year = last_year - 1.year
-          if datetime >= last_year
-            unless Price.where(:date => datetime).first
-              price = Price.new
-              price.date = datetime
-              price.volume = row[5]
-              price.hight = row[2]
-              price.low = row[3]
-              price.open = row[1]
-              price.close = row[4]
-              price.save
+        # Migrate data from csv files to the database
+        CSV.foreach('db/history/'+ symbol +'.csv') do |row|
+          unless row[0] == 'Date' || row[0] == ''
+            datetime = Date.strptime(row[0], '%Y-%m-%d')
+            last_year = Date.today
+            last_year = last_year - 3.year
+            if datetime >= last_year
+              unless Price.where(:date => datetime).first
+                price = Price.new
+                price.date = datetime
+                price.volume = row[5]
+                price.hight = row[2]
+                price.low = row[3]
+                price.open = row[1]
+                price.close = row[4]
+                price.save
+              end
             end
           end
         end
@@ -138,13 +141,15 @@ namespace :scraper do
 
     CSV.foreach('db/symbols.csv') do |row|
       unless row[0] == ''
-        unless Item.find_by_symbol(row[0])
+        item = Item.find_by_symbol(row[0])
+        unless item
           item = Item.new
-          item.symbol = row[0]
-          item.name = row[1]
-          item.market = row[2]
-          item.save
         end
+        item.symbol = row[0]
+        item.name = row[1]
+        item.market = row[2]
+        item.description = row[3]
+        item.save
       end
     end
   end
