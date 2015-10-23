@@ -1,53 +1,53 @@
-AA,Alcoa Inc.,NYSE,
-BA,The Boeing Company,NYSE,
+AA,Alcoa Inc.,NYSE,"{""Company_Info"":{""CEO"":""Klaus Kleinfeld"",""Industry"":""Metals"",""Sector"":""Materials"",""HQ_Location"":""New York, NY"",""Website"":""http://www.alcoa.com""}}"
+BA,The Boeing Company,NYSE,"{""Company_Info"":{""CEO"":""Dennis A. Muilenburg"",""Industry"":""Aerospace and Defense"",""Sector"":""Aerospace & Defense"",""HQ_Location"":""Chicago, IL"",""Website"":""http://www.boeing.com""}}"
 AAPL,Apple Inc.,NasdaqGS,"{""Company_Info"":{""CEO"":""Timothy D. Cook"",""Industry"":""Computers, Office Equipment"",""Sector"":""Technology"",""HQ_Location"":""Cupertino, CA"",""Website"":""http://www.apple.com""}}"
-AMZN,Amazon.com Inc.,NasdaqGS,
-KO,The Coca-Cola Company,NYSE,
-MCD,McDonald's Corp.,NYSE,
-SBUX,Starbucks Corporation,NasdaqGS,
-HPQ,Hewlett-Packard Company,NYSE,
-MSFT,Microsoft Corporation,NasdaqGS,
-GOOG,Google Inc.,NasdaqGS,
+AMZN,Amazon.com Inc.,NasdaqGS,"{""Company_Info"":{""CEO"":""Jeffrey P. Bezos"",""Industry"":""Internet Services and Retailing"",""Sector"":""Technology"",""HQ_Location"":""Seattle, WA"",""Website"":""http://www.amazon.com""}}"
+KO,The Coca-Cola Company,NYSE,"{""Company_Info"":{""CEO"":""Muhtar Kent"",""Industry"":""Beverages"",""Sector"":""Food, Beverages & Tobacco"",""HQ_Location"":""Atlanta, GA"",""Website"":""http://www.coca-colacompany.com""}}"
+MCD,McDonald's Corp.,NYSE,"{""Company_Info"":{""CEO"":""Steve J. Easterbrook"",""Industry"":""Food Services"",""Sector"":""Hotels, Resturants & Leisure"",""HQ_Location"":""Oak Brook, IL"",""Website"":""http://www.aboutmcdonalds.com""}}"
+SBUX,Starbucks Corporation,NasdaqGS,"{""Company_Info"":{""CEO"":""Howard D. Schultz"",""Industry"":""Food Services"",""Sector"":""Hotels, Resturants & Leisure"",""HQ_Location"":""Seattle, WA"",""Website"":""http://www.starbucks.com""}}"
+HPQ,Hewlett-Packard Company,NYSE,"{""Company_Info"":{""CEO"":""Margaret C. Whitman"",""Industry"":""Computers, Office Equipment"",""Sector"":""Technology"",""HQ_Location"":""Palo Alto, CA"",""Website"":""http://www.hp.com""}}"
+MSFT,Microsoft Corporation,NasdaqGS,"{""Company_Info"":{""CEO"":""Satya Nadella"",""Industry"":""Computer Software"",""Sector"":""Technology"",""HQ_Location"":""Redmond, WA"",""Website"":""http://www.microsoft.com""}}"
+GOOG,Google Inc.,NasdaqGS,"{""Company_Info"":{""CEO"":""Larry Page"",""Industry"":""Internet Services and Retailing"",""Sector"":""Technology"",""HQ_Location"":""Mountain View, CA"",""Website"":""http://www.google.com""}}"
 FB,"Facebook, Inc.",NasdaqGS,
 TWTR,"Twitter, Inc.",NYSE,
 DDD,3D Systems Corporation,NYSE,
-MMM,3M Company,NYSE,
+MMM,3M Company,NYSE,"{""Company_Info"":{""CEO"":""Inge G. Thulin"",""Industry"":""zMiscellaneous"",""Sector"":""Household Products"",""HQ_Location"":""St. Paul, MN"",""Website"":""http://www.3m.com""}}"
 XXII,"22nd Century Group, Inc.",NYSE,
 BAC,Bank of America Corporation,NYSE,
 T,"AT&T, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Randall L. Stephenson"",""Industry"":""Telecommunications"",""Sector"":""Telecommunications"",""HQ_Location"":""Dallas, TX"",""Website"":""http://www.att.com""}}"
-AXP,American Express Company,NYSE,
+AXP,American Express Company,NYSE,"{""Company_Info"":{""CEO"":""Kenneth I. Chenault"",""Industry"":""Commercial Banks"",""Sector"":""Financials"",""HQ_Location"":""New York, NY"",""Website"":""http://www.americanexpress.com""}}"
 BP,BP p.l.c.,NYSE,
-BAX,Baxter International Inc.,NYSE,
-X,United States Steel Corp.,NYSE,
+BAX,Baxter International Inc.,NYSE,"{""Company_Info"":{""CEO"":""Robert L. Parkinson Jr."",""Industry"":""Medical Products and Equipment"",""Sector"":""Health Care"",""HQ_Location"":""Deerfield, IL"",""Website"":""http://www.baxter.com""}}"
+X,United States Steel Corp.,NYSE,"{""Company_Info"":{""CEO"":""Mario Longhi"",""Industry"":""Metals"",""Sector"":""Materials"",""HQ_Location"":""Pittsburgh, PA"",""Website"":""http://www.ussteel.com""}}"
 XOM,Exxon Mobil Corporation,NYSE,
-HAL,Halliburton Company,NYSE,
+HAL,Halliburton Company,NYSE,"{""Company_Info"":{""CEO"":""David J. Lesar"",""Industry"":""Oil and Gas Equipment, Services"",""Sector"":""Energy"",""HQ_Location"":""Houston, TX"",""Website"":""http://www.halliburton.com""}}"
 F,Ford Motor Co.,NYSE,"{""Company_Info"":{""CEO"":""Mark Fields"",""Industry"":""Motor Vehicles and Parts"",""Sector"":""	Motor Vehicles & Parts"",""HQ_Location"":""Dearborn, MI"",""Website"":""http://www.ford.com""}}"
-WFC,Wells Fargo & Company,NYSE,
-FDX,FedEx Corporation,NYSE,
-DIS,The Walt Disney Company,NYSE,
-PG,The Procter & Gamble Company,NYSE,
-JNJ,Johnson & Johnson,NYSE,
+WFC,Wells Fargo & Company,NYSE,"{""Company_Info"":{""CEO"":""John G. Stumpf"",""Industry"":""Commercial Banks"",""Sector"":""Financials"",""HQ_Location"":""San Francisco, CA"",""Website"":""http://www.wellsfargo.com""}}"
+FDX,FedEx Corporation,NYSE,"{""Company_Info"":{""CEO"":""Frederick W. Smith"",""Industry"":""Mail, Package, and Freight Delivery"",""Sector"":""Transportation"",""HQ_Location"":""Memphis, TN"",""Website"":""http://www.fedex.com""}}"
+DIS,The Walt Disney Company,NYSE,"{""Company_Info"":{""CEO"":""Robert A. Iger"",""Industry"":""Entertainment"",""Sector"":""Media"",""HQ_Location"":""Burbank, CA"",""Website"":""http://www.disney.com""}}"
+PG,The Procter & Gamble Company,NYSE,"{""Company_Info"":{""CEO"":""Alan G. Lafley"",""Industry"":""Household and Personal Products"",""Sector"":""Household Products"",""HQ_Location"":""Cincinnati, OH"",""Website"":""http://www.pg.com""}}"
+JNJ,Johnson & Johnson,NYSE,"{""Company_Info"":{""CEO"":""Alex Gorsky"",""Industry"":""Pharmaceuticals"",""Sector"":""Health Care"",""HQ_Location"":""New Brunswick, NJ"",""Website"":""http://www.jnj.com""}}"
 GE,General Electric Company,NYSE,"{""Company_Info"":{""CEO"":""Jeffrey R. Immelt"",""Industry"":""Diversified Financials"",""Sector"":""Financials"",""HQ_Location"":""Fairfield, CT"",""Website"":""http://www.ge.com""}}"
 V,Visa Inc.,NYSE,
 WMT,Wal-Mart Stores Inc.,NYSE,"{""Company_Info"":{ ""CEO"":""C. Douglas McMillon"", ""Industry"":""General Merchandisers"",""Sector"":""Retailing"",""HQ_Location"":""Bentonville, AR"",""Website"":""http://www.walmart.com""}}"
 VZ,Verizon Communications Inc.,NYSE,"{""Company_Info"":{""CEO"":""Lowell C. McAdam"",""Industry"":""Telecommunications"",""Sector"":""Telecommunications"",""HQ_Location"":""New York, NY"",""Website"":""http://www.verizon.com""}}"
-UTX,United Technologies Corporation,NYSE,
+UTX,United Technologies Corporation,NYSE,"{""Company_Info"":{""CEO"":""Gregory J. Hayes"",""Industry"":""Aerospace and Defense"",""Sector"":""Aerospace & Defense"",""HQ_Location"":""Hartford, CT"",""Website"":""http://www.utc.com""}}"
 UNH,UnitedHealth Group Incorporated,NYSE,"{""Company_Info"":{""CEO"":""Stephen J. Hemsley"",""Industry"":""Health Care: Insurance and Managed Care"",""Sector"":""Health Care"",""HQ_Location"":""Minnetonka, MN"",""Website"":""http://www.unitedhealthgroup.com""}}"
-TRV,"The Travelers Companies, Inc.",NYSE,
-PFE,Pfizer Inc.,NYSE,
-NKE,"NIKE, Inc.",NYSE,
-MRK,Merck & Co. Inc.,NYSE,
-JPM,JPMorgan Chase & Co.,NYSE,
+TRV,"The Travelers Companies, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Jay S. Fishman"",""Industry"":""Insurance: Property and Casualty (Stock)"",""Sector"":""Financials"",""HQ_Location"":""New York, NY"",""Website"":""http://www.travelers.com""}}"
+PFE,Pfizer Inc.,NYSE,"{""Company_Info"":{""CEO"":""Ian C. Read"",""Industry"":""Pharmaceuticals"",""Sector"":""Health Care"",""HQ_Location"":""New York, NY"",""Website"":""http://www.pfizer.com""}}"
+NKE,"NIKE, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Mark G. Parker"",""Industry"":""Apparel"",""Sector"":""Apparel"",""HQ_Location"":""Beaverton, OR"",""Website"":""http://www.nike.com""}}"
+MRK,Merck & Co. Inc.,NYSE,"{""Company_Info"":{""CEO"":""Kenneth C. Frazier"",""Industry"":""Pharmaceuticals"",""Sector"":""Health Care"",""HQ_Location"":""Kenilworth, NJ"",""Website"":""http://www.merck.com""}}"
+JPM,JPMorgan Chase & Co.,NYSE,"{""Company_Info"":{""CEO"":""James Dimon"",""Industry"":""Commercial Banks"",""Sector"":""Financials"",""HQ_Location"":""New York, NY"",""Website"":""http://www.jpmorganchase.com""}}"
 JNJ,Johnson & Johnson,NYSE,
-IBM,International Business Machines Corporation,NYSE,
-INTC,Intel Corporation,NasdaqGS,
-HD,"The Home Depot, Inc.",NYSE,
-GS,"The Goldman Sachs Group, Inc.",NYSE,
+IBM,International Business Machines Corporation,NYSE,"{""Company_Info"":{""CEO"":""Virginia M. Rometty"",""Industry"":""Information Technology Services"",""Sector"":""Technology"",""HQ_Location"":""Armonk, NY"",""Website"":""http://www.ibm.com""}}"
+INTC,Intel Corporation,NasdaqGS,"{""Company_Info"":{""CEO"":""Brian M. Krzanich"",""Industry"":""Semiconductors and Other Electronic Components"",""Sector"":""Technology"",""HQ_Location"":""Santa Clara, CA"",""Website"":""http://www.intel.com""}}"
+HD,"The Home Depot, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Craig A. Menear"",""Industry"":""Specialty Retailers: Other"",""Sector"":""Retailing"",""HQ_Location"":""Atlanta, GA"",""Website"":""http://www.homedepot.com""}}"
+GS,"The Goldman Sachs Group, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Lloyd C. Blankfein"",""Industry"":""Commercial Banks"",""Sector"":""Financials"",""HQ_Location"":""New York, NY"",""Website"":""http://www.gs.com""}}"
 XOM,Exxon Mobil Corporation,NYSE,"{""Company_Info"":{""CEO"":""Rex W. Tillerson"",""Industry"":""Petroleum Refining"",""Sector"":""Energy"",""HQ_Location"":""Irving, TX"",""Website"":""http://www.exxonmobil.com""}}"
 DFT,"DuPont Fabros Technology, Inc.",NYSE,
-CSCO,"Cisco Systems, Inc.",NasdaqGS,
+CSCO,"Cisco Systems, Inc.",NasdaqGS,"{""Company_Info"":{""CEO"":""Charles H. Robbins"",""Industry"":""Network and Other Communications Equipment"",""Sector"":""Technology"",""HQ_Location"":""San Jose, CA"",""Website"":""http://www.cisco.com""}}"
 CVX,Chevron Corporation,NYSE,"{""Company_Info"":{""CEO"":""John S. Watson"",""Industry"":""Petroleum Refining"",""Sector"":""Energy"",""HQ_Location"":""San Ramon, CA"",""Website"":""http://www.chevron.com""}}"
-CAT,Caterpillar Inc.,NYSE,
+CAT,Caterpillar Inc.,NYSE,"{""Company_Info"":{""CEO"":""Douglas R. Oberhelman"",""Industry"":""Construction and Farm Machinery"",""Sector"":""Industrials"",""HQ_Location"":""Peoria, IL"",""Website"":""http://www.caterpillar.com""}}"
 BRK-A,Berkshire Hathaway Inc.,NYSE,"{""Company_Info"":{""CEO"":""Warren E. Buffett"",""Industry"":""Insurance: Property and Casualty (Stock)"",""Sector"":""Financials"",""HQ_Location"":""Omaha, NE"",""Website"":""http://www.berkshirehathaway.com""}}"
 PSX,Phillips 66,NYSE,"{""Company_Info"":{""CEO"":""Greg C. Garland"",""Industry"":""Petroleum Refining"",""Sector"":""Energy"",""HQ_Location"":""Houston, TX"",""Website"":""http://www.phillips66.com""}}"
 CVS,CVS Health Corporation,NYSE,"{""Company_Info"":{""CEO"":""Larry J. Merlo"",""Industry"":""Food and Drug Stores"",""Sector"":""Food & Drug Stores"",""HQ_Location"":""Woonsocket, RI"",""Website"":""http://www.cvshealth.com""}}"
@@ -55,47 +55,146 @@ MCK,McKesson Corporation,NYSE,"{""Company_Info"":{""CEO"":""John H. Hammergren""
 VLO,Valero Energy Corporation,NYSE,"{""Company_Info"":{""CEO"":""Joseph Gorder"",""Industry"":""Petroleum Refining"",""Sector"":""Energy"",""HQ_Location"":""San Antonio, TX"",""Website"":""http://www.valero.com""}}"
 ABC,AmerisourceBergen Corporation,NYSE,"{""Company_Info"":{""CEO"":""Steven H. Collis"",""Industry"":""Wholesalers: Health Care"",""Sector"":""Wholesalers"",""HQ_Location"":""Chesterbrook, PA"",""Website"":""http://www.amerisourcebergen.com""}}"
 FNMA,Federal National Mortgage Association,NYSE,"{""Company_Info"":{""CEO"":""Timothy J. Mayopoulos"",""Industry"":""Diversified Financials"",""Sector"":""Financials"",""HQ_Location"":""Washington, DC"",""Website"":""http://www.fanniemae.com""}}"
-COST,Costco Wholesale Corporation,NasdaqGS,
-KR,The Kroger Co.,NYSE,
-ESRX,Express Scripts Holding Company,NasdaqGS,
-MPC,Marathon Petroleum Corporation,NYSE,
-CAH,"Cardinal Health, Inc.",NYSE,
-C,Citigroup Inc.,NYSE,
-ADM,Archer-Daniels-Midland Company,NYSE,
-WBA,"Walgreens Boots Alliance, Inc.",NasdaqGS,
-TGT,Target Corp.,NYSE,
-ANTM,"Anthem, Inc.",NYSE,
-MET,"MetLife, Inc.",NYSE,
-CMCSA,Comcast Corporation,NasdaqGS,
-PEP,"Pepsico, Inc.",NYSE,
-AIG,"American International Group, Inc.",NYSE,
-UPS,"United Parcel Service, Inc.",NYSE,
-DOW,The Dow Chemical Company,NYSE,
-AET,Aetna Inc.,NYSE,
-LOW,Lowe's Companies Inc.,NYSE,
-COP,ConocoPhillips,NYSE,
-ETE,"Energy Transfer Equity, L.P.",NYSE,
-PRU,"Prudential Financial, Inc.",NYSE,
-HUM,Humana Inc.,NYSE,
-EPD,Enterprise Products Partners L.P.,NYSE,
-SYY,Sysco Corporation,NYSE,
-IM,Ingram Micro Inc.,NYSE,
-LMT,Lockheed Martin Corporation,NYSE,
-JCI,Johnson Controls Inc.,NYSE,
-PAGP,"Plains GP Holdings, L.P.",NYSE,
-INT,World Fuel Services Corp.,NYSE,
-AAL,American Airlines Group Inc.,NasdaqGS,
-BBY,"Best Buy Co., Inc.",NYSE,
-DAL,"Delta Air Lines, Inc.",NYSE,
-HCA,"HCA Holdings, Inc.",NYSE,
-TSO,Tesoro Corporation,NYSE,
-UAL,"United Continental Holdings, Inc.",NYSE,
-ORCL,Oracle Corporation,NYSE,
-MS,Morgan Stanley,NYSE,
-TSN,"Tyson Foods, Inc.",NYSE,
-DE,Deere & Company,NYSE,
-ALL,The Allstate Corporation,NYSE,
-CI,Cigna Corp.,NYSE,
-MDLZ,"Mondelez International, Inc.",NasdaqGS,
-INTL,INTL FCStone Inc.,NasdaqGS,
+COST,Costco Wholesale Corporation,NasdaqGS,"{""Company_Info"":{""CEO"":""W. Craig Jelinek"",""Industry"":""Specialty Retailers: Other"",""Sector"":""Retailing"",""HQ_Location"":""Issaquah, WA"",""Website"":""http://www.costco.com""}}"
+KR,The Kroger Co.,NYSE,"{""Company_Info"":{""CEO"":""W. Rodney McMullen"",""Industry"":""Food and Drug Stores"",""Sector"":""Food & Drug Stores"",""HQ_Location"":""Cincinnati, OH"",""Website"":""http://www.thekrogerco.com""}}"
+ESRX,Express Scripts Holding Company,NasdaqGS,"{""Company_Info"":{""CEO"":""George Paz"",""Industry"":""Health Care: Pharmacy and Other Services"",""Sector"":""Health Care"",""HQ_Location"":""St. Louis, MO"",""Website"":""http://www.express-scripts.com""}}"
+MPC,Marathon Petroleum Corporation,NYSE,"{""Company_Info"":{""CEO"":""Gary R. Heminger"",""Industry"":""Petroleum Refining"",""Sector"":""Energy"",""HQ_Location"":""Findlay, OH"",""Website"":""http://www.marathonpetroleum.com""}}"
+CAH,"Cardinal Health, Inc.",NYSE,"{""Company_Info"":{""CEO"":""George S. Barrett"",""Industry"":""Wholesalers: Health Care"",""Sector"":""Wholesalers"",""HQ_Location"":""Dublin, OH"",""Website"":""http://www.cardinal.com""}}"
+C,Citigroup Inc.,NYSE,"{""Company_Info"":{""CEO"":""Michael L. Corbat"",""Industry"":""Commercial Banks"",""Sector"":""Financials"",""HQ_Location"":""New York, NY"",""Website"":""http://www.citigroup.com""}}"
+ADM,Archer-Daniels-Midland Company,NYSE,"{""Company_Info"":{""CEO"":""Juan R. Luciano"",""Industry"":""Food Production"",""Sector"":""Food, Beverages & Tobacco"",""HQ_Location"":""Chicago, IL"",""Website"":""http://www.adm.com""}}"
+WBA,"Walgreens Boots Alliance, Inc.",NasdaqGS,"{""Company_Info"":{""CEO"":""Stefano Pessina"",""Industry"":""Food and Drug Stores"",""Sector"":""Food & Drug Stores"",""HQ_Location"":""Deerfield, IL"",""Website"":""http://www.walgreensbootsalliance.com""}}"
+TGT,Target Corp.,NYSE,"{""Company_Info"":{""CEO"":""Brian C. Cornell"",""Industry"":""General Merchandisers"",""Sector"":""Retailing"",""HQ_Location"":""Minneapolis, MN"",""Website"":""http://www.target.com""}}"
+ANTM,"Anthem, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Joseph R. Swedish"",""Industry"":""Health Care: Insurance and Managed Care"",""Sector"":""Health Care"",""HQ_Location"":""Indianapolis, IN"",""Website"":""http://www.antheminc.com""}}"
+MET,"MetLife, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Steven A. Kandarian"",""Industry"":""Insurance: Life, Health (stock)"",""Sector"":""Financials"",""HQ_Location"":""New York, NY"",""Website"":""http://www.metlife.com""}}"
+CMCSA,Comcast Corporation,NasdaqGS,"{""Company_Info"":{""CEO"":""Brian L. Roberts"",""Industry"":""Telecommunications"",""Sector"":""Telecommunications"",""HQ_Location"":""Philadelphia, PA"",""Website"":""http://www.comcastcorporation.com""}}"
+PEP,"Pepsico, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Indra K. Nooyi"",""Industry"":""Food Consumer Products"",""Sector"":""Food, Beverages & Tobacco"",""HQ_Location"":""Purchase, NY"",""Website"":""http://www.pepsico.com""}}"
+AIG,"American International Group, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Peter D. Hancock"",""Industry"":""Insurance: Property and Casualty (Stock)"",""Sector"":""Financials"",""HQ_Location"":""New York, NY"",""Website"":""http://www.aig.com""}}"
+UPS,"United Parcel Service, Inc.",NYSE,"{""Company_Info"":{""CEO"":""David P. Abney"",""Industry"":""Mail, Package, and Freight Delivery"",""Sector"":""Transportation"",""HQ_Location"":""Atlanta, GA"",""Website"":""http://www.ups.com""}}"
+DOW,The Dow Chemical Company,NYSE,"{""Company_Info"":{""CEO"":""Andrew N. Liveris"",""Industry"":""Chemicals"",""Sector"":""Chemicals"",""HQ_Location"":""Midland, MI"",""Website"":""http://www.dow.com""}}"
+AET,Aetna Inc.,NYSE,"{""Company_Info"":{""CEO"":""Mark T. Bertolini"",""Industry"":""Health Care: Insurance and Managed Care"",""Sector"":""Health Care"",""HQ_Location"":""Hartford, CT"",""Website"":""http://www.aetna.com""}}"
+LOW,Lowe's Companies Inc.,NYSE,"{""Company_Info"":{""CEO"":""Robert A. Niblock"",""Industry"":""Specialty Retailers: Other"",""Sector"":""Retailing"",""HQ_Location"":""Mooresville, NC"",""Website"":""http://www.lowes.com""}}"
+COP,ConocoPhillips,NYSE,"{""Company_Info"":{""CEO"":""Ryan M. Lance"",""Industry"":""Mining, Crude-Oil Production"",""Sector"":""Energy"",""HQ_Location"":""Houston, TX"",""Website"":""http://www.conocophillips.com""}}"
+ETE,"Energy Transfer Equity, L.P.",NYSE,"{""Company_Info"":{""CEO"":""John W. McReynolds"",""Industry"":""Pipelines"",""Sector"":""Energy"",""HQ_Location"":""Dallas, TX"",""Website"":""http://www.energytransfer.com""}}"
+PRU,"Prudential Financial, Inc.",NYSE,"{""Company_Info"":{""CEO"":""John R. Strangfeld Jr."",""Industry"":""Insurance: Life, Health (stock)"",""Sector"":""Financials"",""HQ_Location"":""Newark, NJ"",""Website"":""http://www.prudential.com""}}"
+HUM,Humana Inc.,NYSE,"{""Company_Info"":{""CEO"":""Bruce D. Broussard"",""Industry"":""Health Care: Insurance and Managed Care"",""Sector"":""Health Care"",""HQ_Location"":""Louisville, KY"",""Website"":""http://www.humana.com""}}"
+EPD,Enterprise Products Partners L.P.,NYSE,"{""Company_Info"":{""CEO"":""Michael A. Creel"",""Industry"":""Pipelines"",""Sector"":""Energy"",""HQ_Location"":""Houston, TX"",""Website"":""http://www.enterpriseproducts.com""}}"
+SYY,Sysco Corporation,NYSE,"{""Company_Info"":{""CEO"":""William J. DeLaney III"",""Industry"":""Wholesalers: Food and Grocery"",""Sector"":""Wholesalers"",""HQ_Location"":""Houston, TX"",""Website"":""http://www.sysco.com""}}"
+IM,Ingram Micro Inc.,NYSE,"{""Company_Info"":{""CEO"":""Alain Monie"",""Industry"":""Wholesalers: Electronics and Office Equipment"",""Sector"":""Wholesalers"",""HQ_Location"":""Santa Ana, CA"",""Website"":""http://www.ingrammicro.com""}}"
+LMT,Lockheed Martin Corporation,NYSE,"{""Company_Info"":{""CEO"":""Marillyn A. Hewson"",""Industry"":""Aerospace and Defense"",""Sector"":""Aerospace & Defense"",""HQ_Location"":""Bethesda, MD"",""Website"":""http://www.lockheedmartin.com""}}"
+JCI,Johnson Controls Inc.,NYSE,"{""Company_Info"":{""CEO"":""Alex A. Molinaroli"",""Industry"":""Motor Vehicles and Parts"",""Sector"":""Motor Vehicles & Parts"",""HQ_Location"":""Milwaukee, WI"",""Website"":""http://www.johnsoncontrols.com""}}"
+PAGP,"Plains GP Holdings, L.P.",NYSE,"{""Company_Info"":{""CEO"":""Greg L. Armstrong"",""Industry"":""Pipelines"",""Sector"":""Energy"",""HQ_Location"":""Houston, TX"",""Website"":""http://www.plainsallamerican.com""}}"
+INT,World Fuel Services Corp.,NYSE,"{""Company_Info"":{""CEO"":""Michael J. Kasbar"",""Industry"":""Wholesalers: Diversified"",""Sector"":""Wholesalers"",""HQ_Location"":""Miami, FL"",""Website"":""http://www.wfscorp.com""}}"
+AAL,American Airlines Group Inc.,NasdaqGS,"{""Company_Info"":{""CEO"":""W. Douglas Parker"",""Industry"":""Airlines"",""Sector"":""Transportation"",""HQ_Location"":""Fort Worth, TX"",""Website"":""http://www.aa.com""}}"
+BBY,"Best Buy Co., Inc.",NYSE,"{""Company_Info"":{""CEO"":""Hubert B. Joly"",""Industry"":""Specialty Retailers: Other"",""Sector"":""Retailing"",""HQ_Location"":""Richfield, MN"",""Website"":""http://www.bestbuy.com""}}"
+DAL,"Delta Air Lines, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Richard H. Anderson"",""Industry"":""Airlines"",""Sector"":""Transportation"",""HQ_Location"":""Atlanta, GA"",""Website"":""http://www.delta.com""}}"
+HCA,"HCA Holdings, Inc.",NYSE,"{""Company_Info"":{""CEO"":""R. Milton Johnson"",""Industry"":""Health Care: Medical Facilities"",""Sector"":""Health Care"",""HQ_Location"":""Nashville, TN"",""Website"":""http://www.hcahealthcare.com""}}"
+TSO,Tesoro Corporation,NYSE,"{""Company_Info"":{""CEO"":""Gregory J. Goff"",""Industry"":""Petroleum Refining"",""Sector"":""Energy"",""HQ_Location"":""San Antonio, TX"",""Website"":""http://www.tsocorp.com""}}"
+UAL,"United Continental Holdings, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Oscar Munoz"",""Industry"":""Airlines"",""Sector"":""Transportation"",""HQ_Location"":""Chicago, IL"",""Website"":""http://www.unitedcontinentalholdings.com""}}"
+ORCL,Oracle Corporation,NYSE,"{""Company_Info"":{""CEO"":""Safra A. Catz"",""Industry"":""Computer Software"",""Sector"":""Technology"",""HQ_Location"":""Redwood City, CA"",""Website"":""http://www.oracle.com""}}"
+MS,Morgan Stanley,NYSE,"{""Company_Info"":{""CEO"":""James P. Gorman"",""Industry"":""Commercial Banks"",""Sector"":""Financials"",""HQ_Location"":""New York, NY"",""Website"":""http://www.morganstanley.com""}}"
+TSN,"Tyson Foods, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Donnie Smith"",""Industry"":""Food Production"",""Sector"":""Food, Beverages & Tobacco"",""HQ_Location"":""Springdale, AR"",""Website"":""http://www.tysonfoods.com""}}"
+DE,Deere & Company,NYSE,"{""Company_Info"":{""CEO"":""Samuel R. Allen"",""Industry"":""Construction and Farm Machinery"",""Sector"":""Industrials"",""HQ_Location"":""Moline, IL"",""Website"":""http://www.johndeere.com""}}"
+ALL,The Allstate Corporation,NYSE,"{""Company_Info"":{""CEO"":""Thomas J. Wilson"",""Industry"":""Insurance: Property and Casualty (Stock)"",""Sector"":""Financials"",""HQ_Location"":""Northbrook, IL"",""Website"":""http://www.allstate.com""}}"
+CI,Cigna Corp.,NYSE,"{""Company_Info"":{""CEO"":""David M. Cordani"",""Industry"":""Health Care: Insurance and Managed Care"",""Sector"":""Health Care"",""HQ_Location"":""Bloomfield, CT"",""Website"":""http://www.cigna.com""}}"
+MDLZ,"Mondelez International, Inc.",NasdaqGS,"{""Company_Info"":{""CEO"":""Irene B. Rosenfeld"",""Industry"":""Food Consumer Products"",""Sector"":""Food, Beverages & Tobacco"",""HQ_Location"":""Deerfield, IL"",""Website"":""http://www.mondelezinternational.com""}}"
+INTL,INTL FCStone Inc.,NasdaqGS,"{""Company_Info"":{""CEO"":""Sean M. O'Connor"",""Industry"":""Diversified Financials"",""Sector"":""Financials"",""HQ_Location"":""New York, NY"",""Website"":""http://www.intlfcstone.com""}}"
 GM,General Motors Company,NYSE,"{""Company_Info"":{""CEO"":""Mary T. Barra"",""Industry"":""Motor Vehicles and Parts"",""Sector"":""Motor Vehicles & Parts"",""HQ_Location"":""Detroit, MI"",""Website"":""http://www.gm.com""}}"
+DD,DuPont,NYSE,"{""Company_Info"":{""CEO"":""Edward Breen"",""Industry"":""Chemicals"",""Sector"":""Chemicals"",""HQ_Location"":""Wilmington, DE"",""Website"":""http://www.dupont.com""}}"
+FOX,"Twenty-First Century Fox, Inc.",NasdaqGS,"{""Company_Info"":{""CEO"":""James R. Murdoch"",""Industry"":""Entertainment"",""Sector"":""Media"",""HQ_Location"":""New York, NY"",""Website"":""http://www.21cf.com""}}"
+SHLD,Sears Holdings Corporation,NasdaqGS,"{""Company_Info"":{""CEO"":""Edward S. Lampert"",""Industry"":""General Merchandisers"",""Sector"":""Retailing"",""HQ_Location"":""Hoffman Estates, IL"",""Website"":""http://www.searsholdings.com""}}"
+GD,General Dynamics Corporation,NYSE,"{""Company_Info"":{""CEO"":""Phebe N. Novakovic"",""Industry"":""Aerospace and Defense"",""Sector"":""Aerospace & Defense"",""HQ_Location"":""Falls Church, VA"",""Website"":""http://www.generaldynamics.com""}}"
+PM,"Philip Morris International, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Andr Calantzopoulos"",""Industry"":""Tobacco"",""Sector"":""Food, Beverages & Tobacco"",""HQ_Location"":""New York, NY"",""Website"":""http://www.pmi.com""}}"
+TJX,"The TJX Companies, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Carol M. Meyrowitz"",""Industry"":""Specialty Retailers: Apparel"",""Sector"":""Retailing"",""HQ_Location"":""Framingham, MA"",""Website"":""http://www.tjx.com""}}"
+TWX,Time Warner Inc.,NYSE,"{""Company_Info"":{""CEO"":""Jeffrey L. Bewkes"",""Industry"":""Entertainment"",""Sector"":""Media"",""HQ_Location"":""New York, NY"",""Website"":""http://www.timewarner.com""}}"
+M,"Macy's, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Terry J. Lundgren"",""Industry"":""General Merchandisers"",""Sector"":""Retailing"",""HQ_Location"":""Cincinnati, OH"",""Website"":""http://www.macysinc.com""}}"
+TECD,Tech Data Corp.,NasdaqGS,"{""Company_Info"":{""CEO"":""Robert M. Dutkowsky"",""Industry"":""Wholesalers: Electronics and Office Equipment"",""Sector"":""Wholesalers"",""HQ_Location"":""Clearwater, FL"",""Website"":""http://www.techdata.com""}}"
+AVT,"Avnet, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Richard Hamada"",""Industry"":""Wholesalers: Electronics and Office Equipment"",""Sector"":""Wholesalers"",""HQ_Location"":""Phoenix, AZ"",""Website"":""http://www.avnet.com""}}"
+NWE,Northwestern Corporation,NYSE,"{""Company_Info"":{""CEO"":""John E. Schlifske"",""Industry"":""Insurance: Life, Health (Mutual)"",""Sector"":""Financials"",""HQ_Location"":""Milwaukee, WI"",""Website"":""http://www.northwesternmutual.com""}}"
+EXC,Exelon Corporation,NYSE,"{""Company_Info"":{""CEO"":""Christopher M. Crane"",""Industry"":""Utilities: Gas and Electric"",""Sector"":""Energy"",""HQ_Location"":""Chicago, IL"",""Website"":""http://www.exeloncorp.com""}}"
+QCOM,QUALCOMM Incorporated,NasdaqGS,"{""Company_Info"":{""CEO"":""Steven M. Mollenkopf"",""Industry"":""Network and Other Communications Equipment"",""Sector"":""Technology"",""HQ_Location"":""San Diego, CA"",""Website"":""http://www.qualcomm.com""}}"
+IP,International Paper Company,NYSE,"{""Company_Info"":{""CEO"":""Mark S. Sutton"",""Industry"":""Packaging, Containers"",""Sector"":""Materials"",""HQ_Location"":""Memphis, TN"",""Website"":""http://www.internationalpaper.com""}}"
+OXY,Occidental Petroleum Corporation,NYSE,"{""Company_Info"":{""CEO"":""Stephen I. Chazen"",""Industry"":""Mining, Crude-Oil Production"",""Sector"":""Energy"",""HQ_Location"":""Houston, TX"",""Website"":""http://www.oxy.com""}}"
+DUK,Duke Energy Corporation,NYSE,"{""Company_Info"":{""CEO"":""Lynn J. Good"",""Industry"":""Utilities: Gas and Electric"",""Sector"":""Energy"",""HQ_Location"":""Charlotte, NC"",""Website"":""http://www.duke-energy.com""}}"
+RAD,Rite Aid Corporation,NYSE,"{""Company_Info"":{""CEO"":""John T. Standley"",""Industry"":""Food and Drug Stores"",""Sector"":""Food & Drug Stores"",""HQ_Location"":""Camp Hill, PA"",""Website"":""http://www.riteaid.com""}}"
+GILD,Gilead Sciences Inc.,NasdaqGS,"{""Company_Info"":{""CEO"":""John C. Martin"",""Industry"":""Pharmaceuticals"",""Sector"":""Health Care"",""HQ_Location"":""Foster City, CA"",""Website"":""http://www.gilead.com""}}"
+BHI,Baker Hughes Incorporated,NYSE,"{""Company_Info"":{""CEO"":""Martin S. Craighead"",""Industry"":""Oil and Gas Equipment, Services"",""Sector"":""Energy"",""HQ_Location"":""Houston, TX"",""Website"":""http://www.bakerhughes.com""}}"
+EMR,Emerson Electric Co.,NYSE,"{""Company_Info"":{""CEO"":""David N. Farr"",""Industry"":""Electronics, Electrical Equip."",""Sector"":""Industrials"",""HQ_Location"":""St. Louis, MO"",""Website"":""http://www.emerson.com""}}"
+EMC,EMC Corporation,NYSE,"{""Company_Info"":{""CEO"":""Joseph M. Tucci"",""Industry"":""Computer Peripherals"",""Sector"":""Technology"",""HQ_Location"":""Hopkinton, MA"",""Website"":""http://www.emc.com""}}"
+UNP,Union Pacific Corporation,NYSE,"{""Company_Info"":{""CEO"":""Lance M. Fritz"",""Industry"":""Railroads"",""Sector"":""Transportation"",""HQ_Location"":""Omaha, NE"",""Website"":""http://www.up.com""}}"
+NOC,Northrop Grumman Corporation,NYSE,"{""Company_Info"":{""CEO"":""Wesley G. Bush"",""Industry"":""Aerospace and Defense"",""Sector"":""Aerospace & Defense"",""HQ_Location"":""Falls Church, VA"",""Website"":""http://www.northropgrumman.com""}}"
+COF,Capital One Financial Corporation,NYSE,"{""Company_Info"":{""CEO"":""Richard D. Fairbank"",""Industry"":""Commercial Banks"",""Sector"":""Financials"",""HQ_Location"":""McLean, VA"",""Website"":""http://www.capitalone.com""}}"
+NOV,"National Oilwell Varco, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Clay C. Williams"",""Industry"":""Oil and Gas Equipment, Services"",""Sector"":""Energy"",""HQ_Location"":""Houston, TX"",""Website"":""http://www.nov.com""}}"
+RTN,Raytheon Company,NYSE,"{""Company_Info"":{""CEO"":""Thomas A. Kennedy"",""Industry"":""Aerospace and Defense"",""Sector"":""Aerospace & Defense"",""HQ_Location"":""Waltham, MA"",""Website"":""http://www.raytheon.com""}}"
+TWC,Time Warner Cable Inc.,NYSE,"{""Company_Info"":{""CEO"":""Robert D. Marcus"",""Industry"":""Telecommunications"",""Sector"":""Telecommunications"",""HQ_Location"":""New York, NY"",""Website"":""http://www.twc.com""}}"
+ARW,"Arrow Electronics, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Michael J. Long"",""Industry"":""Wholesalers: Electronics and Office Equipment"",""Sector"":""Wholesalers"",""HQ_Location"":""Centennial, CO"",""Website"":""http://www.arrow.com""}}"
+AFL,Aflac Incorporated,NYSE,"{""Company_Info"":{""CEO"":""Daniel P. Amos"",""Industry"":""Insurance: Life, Health (stock)"",""Sector"":""Financials"",""HQ_Location"":""Columbus, GA"",""Website"":""http://www.aflac.com""}}"
+SPLS,"Staples, Inc.",NasdaqGS,"{""Company_Info"":{""CEO"":""Ronald L. Sargent"",""Industry"":""Specialty Retailers: Other"",""Sector"":""Retailing"",""HQ_Location"":""Framingham, MA"",""Website"":""http://www.staples.com""}}"
+ABT,Abbott Laboratories,NYSE,"{""Company_Info"":{""CEO"":""Miles D. White"",""Industry"":""Medical Products and Equipment"",""Sector"":""Health Care"",""HQ_Location"":""Abbott Park, IL"",""Website"":""http://www.abbott.com""}}"
+CYH,"Community Health Systems, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Wayne T. Smith"",""Industry"":""Health Care: Medical Facilities"",""Sector"":""Health Care"",""HQ_Location"":""Franklin, TN"",""Website"":""http://www.chs.net""}}"
+FLR,Fluor Corporation,NYSE,"{""Company_Info"":{""CEO"":""David T. Seaton"",""Industry"":""Engineering, Construction"",""Sector"":""Engineering & Construction"",""HQ_Location"":""Irving, TX"",""Website"":""http://www.fluor.com""}}"
+FCX,Freeport-McMoRan Inc.,NYSE,"{""Company_Info"":{""CEO"":""Richard C. Adkerson"",""Industry"":""Mining, Crude-Oil Production"",""Sector"":""Energy"",""HQ_Location"":""Phoenix, AZ"",""Website"":""http://www.fcx.com""}}"
+USB,U.S. Bancorp,NYSE,"{""Company_Info"":{""CEO"":""Richard K. Davis"",""Industry"":""Commercial Banks"",""Sector"":""Financials"",""HQ_Location"":""Minneapolis, MN"",""Website"":""http://www.usbank.com""}}"
+NUE,Nucor Corporation,NYSE,"{""Company_Info"":{""CEO"":""John J. Ferriola"",""Industry"":""Metals"",""Sector"":""Materials"",""HQ_Location"":""Charlotte, NC"",""Website"":""http://www.nucor.com""}}"
+KMB,Kimberly-Clark Corporation,NYSE,"{""Company_Info"":{""CEO"":""Thomas J. Falk"",""Industry"":""Household and Personal Products"",""Sector"":""Household Products"",""HQ_Location"":""Irving, TX"",""Website"":""http://www.kimberly-clark.com""}}"
+HES,Hess Corporation,NYSE,"{""Company_Info"":{""CEO"":""John B. Hess"",""Industry"":""Petroleum Refining"",""Sector"":""Energy"",""HQ_Location"":""New York, NY"",""Website"":""http://www.hess.com""}}"
+CHK,Chesapeake Energy Corporation,NYSE,"{""Company_Info"":{""CEO"":""Robert D. Lawler"",""Industry"":""Mining, Crude-Oil Production"",""Sector"":""Energy"",""HQ_Location"":""Oklahoma City, OK"",""Website"":""http://www.chk.com""}}"
+XRX,Xerox Corporation,NYSE,"{""Company_Info"":{""CEO"":""Ursula M. Burns"",""Industry"":""Information Technology Services"",""Sector"":""Technology"",""HQ_Location"":""Norwalk, CT"",""Website"":""http://www.xerox.com""}}"
+MAN,ManpowerGroup Inc.,NYSE,"{""Company_Info"":{""CEO"":""Jonas Prising"",""Industry"":""Temporary Help"",""Sector"":""Business Services"",""HQ_Location"":""Milwaukee, WI"",""Website"":""http://www.manpowergroup.com""}}"
+AMGN,Amgen Inc.,NasdaqGS,"{""Company_Info"":{""CEO"":""Robert A. Bradway"",""Industry"":""Pharmaceuticals"",""Sector"":""Health Care"",""HQ_Location"":""Thousand Oaks, CA"",""Website"":""http://www.amgen.com""}}"
+ABBV,AbbVie Inc.,NYSE,"{""Company_Info"":{""CEO"":""Richard A. Gonzalez"",""Industry"":""Pharmaceuticals"",""Sector"":""Health Care"",""HQ_Location"":""North Chicago, IL"",""Website"":""http://www.abbvie.com""}}"
+DHR,Danaher Corp.,NYSE,"{""Company_Info"":{""CEO"":""Thomas P. Joyce Jr."",""Industry"":""Scientific,Photographic and Control Equipment"",""Sector"":""Technology"",""HQ_Location"":""Washington, DC"",""Website"":""http://www.danaher.com""}}"
+WHR,Whirlpool Corp.,NYSE,"{""Company_Info"":{""CEO"":""Jeff M. Fettig"",""Industry"":""Electronics, Electrical Equip."",""Sector"":""Industrials"",""HQ_Location"":""Benton Harbor, MI"",""Website"":""http://www.whirlpoolcorp.com""}}"
+PBF,PBF Energy Inc.,NYSE,"{""Company_Info"":{""CEO"":""Thomas J. Nimbley"",""Industry"":""Petroleum Refining"",""Sector"":""Energy"",""HQ_Location"":""Parsippany, NJ"",""Website"":""http://www.pbfenergy.com""}}"
+HFC,HollyFrontier Corporation,NYSE,"{""Company_Info"":{""CEO"":""Michael C. Jennings"",""Industry"":""Petroleum Refining"",""Sector"":""Energy"",""HQ_Location"":""Dallas, TX"",""Website"":""http://www.hollyfrontier.com""}}"
+LLY,Eli Lilly and Company,NYSE,"{""Company_Info"":{""CEO"":""John C. Lechleiter"", ""Industry"":""Pharmaceuticals"",""Sector"":""Health Care"",""HQ_Location"":""Indianapolis, IN"",""Website"":""http://www.lilly.com""}}"
+DVN,Devon Energy Corporation,NYSE,"{""Company_Info"":{""CEO"":""David A. Hager"",""Industry"":""Mining, Crude-Oil Production"",""Sector"":""Energy"",""HQ_Location"":""Oklahoma City, OK"",""Website"":""http://www.devonenergy.com""}}"
+PGR,Progressive Corp.,NYSE,"{""Company_Info"":{""CEO"":""Glenn M. Renwick"",""Industry"":""Insurance: Property and Casualty (Stock)"",""Sector"":""Financials"",""HQ_Location"":""Mayfield Village, OH"",""Website"":""http://www.progressive.com""}}"
+CMI,Cummins Inc.,NYSE,"{""Company_Info"":{""CEO"":""N. Thomas Linebarger"",""Industry"":""Construction and Farm Machinery"",""Sector"":""Industrials"",""HQ_Location"":""Columbus, IN"",""Website"":""http://www.cummins.com""}}"
+IEP,"Icahn Enterprises, L.P.",NasdaqGS,"{""Company_Info"":{""CEO"":""Keith Cozza"",""Industry"":""Petroleum Refining"",""Sector"":""Energy"",""HQ_Location"":""New York, NY"",""Website"":""http://www.ielp.com""}}"
+AN,"AutoNation, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Michael J. Jackson"",""Industry"":""Automotive Retailing, Services"",""Sector"":""Retailing"",""HQ_Location"":""Fort Lauderdale, FL"",""Website"":""http://www.autonation.com""}}"
+KSS,Kohl's Corp.,NYSE,"{""Company_Info"":{""CEO"":""Kevin Mansell"",""Industry"":""General Merchandisers"",""Sector"":""Retailing"",""HQ_Location"":""Menomonee Falls, WI"",""Website"":""http://www.kohlscorporation.com""}}"
+PCAR,PACCAR Inc.,NasdaqGS,"{""Company_Info"":{""CEO"":""Ronald E. Armstrong"",""Industry"":""Motor Vehicles and Parts"",""Sector"":""Motor Vehicles & Parts"",""HQ_Location"":""Bellevue, WA"",""Website"":""http://www.paccar.com""}}"
+DG,Dollar General Corporation,NYSE,"{""Company_Info"":{""CEO"":""Todd J. Vasos"",""Industry"":""General Merchandisers"",""Sector"":""Retailing"",""HQ_Location"":""Goodlettsville, TN"",""Website"":""http://www.dollargeneral.com""}}"
+HIG,"The Hartford Financial Services Group, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Christopher J. Swift"",""Industry"":""Insurance: Property and Casualty (Stock)"",""Sector"":""Financials"",""HQ_Location"":""Hartford, CT"",""Website"":""http://www.thehartford.com""}}"
+LUV,Southwest Airlines Co.,NYSE,"{""Company_Info"":{""CEO"":""Gary C. Kelly"",""Industry"":""Airlines"",""Sector"":""Transportation"",""HQ_Location"":""Dallas, TX"",""Website"":""http://www.southwest.com""}}"
+APC,Anadarko Petroleum Corporation,NYSE,"{""Company_Info"":{""CEO"":""R. A. Walker"",""Industry"":""Mining, Crude-Oil Production"",""Sector"":""Energy"",""HQ_Location"":""The Woodlands, TX"",""Website"":""http://www.anadarko.com""}}"
+SO,Southern Company,NYSE,"{""Company_Info"":{""CEO"":""Thomas A. Fanning"",""Industry"":""Utilities: Gas and Electric"",""Sector"":""Energy"",""HQ_Location"":""Atlanta, GA"",""Website"":""http://www.southerncompany.com""}}"
+SVU,SUPERVALU Inc.,NYSE,"{""Company_Info"":{""CEO"":""Sam K. Duncan"",""Industry"":""Food and Drug Stores"",""Sector"":""Food & Drug Stores"",""HQ_Location"":""Eden Prairie, MN"",""Website"":""http://www.supervalu.com""}}"
+GT,The Goodyear Tire & Rubber Company,NYSE,"{""Company_Info"":{""CEO"":""Richard J. Kramer"",""Industry"":""Motor Vehicles and Parts"",""Sector"":""Motor Vehicles & Parts"",""HQ_Location"":""Akron, OH"",""Website"":""http://www.goodyear.com""}}"
+EOG,"EOG Resources, Inc.",NYSE,"{""Company_Info"":{""CEO"":""William R. Thomas"",""Industry"":""Mining, Crude-Oil Production"",""Sector"":""Energy"",""HQ_Location"":""Houston, TX"",""Website"":""http://www.eogresources.com""}}"
+CTL,"CenturyLink, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Glen F. Post III"",""Industry"":""Telecommunications"",""Sector"":""Telecommunications"",""HQ_Location"":""Monroe, LA"",""Website"":""http://www.centurylink.com""}}"
+MO,Altria Group Inc.,NYSE,"{""Company_Info"":{""CEO"":""Martin J. Barrington"",""Industry"":""Tobacco"",""Sector"":""Food, Beverages & Tobacco"",""HQ_Location"":""Richmond, VA"",""Website"":""http://www.altria.com""}}"
+THC,Tenet Healthcare Corp.,NYSE,"{""Company_Info"":{""CEO"":""Trevor Fetter"",""Industry"":""Health Care: Medical Facilities"",""Sector"":""Health Care"",""HQ_Location"":""Dallas, TX"",""Website"":""http://www.tenethealth.com""}}"
+GIS,"General Mills, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Kendall J. Powell"",""Industry"":""Food Consumer Products"",""Sector"":""Food, Beverages & Tobacco"",""HQ_Location"":""Minneapolis, MN"",""Website"":""http://www.generalmills.com""}}"
+EBAY,eBay Inc.,NasdaqGS,"{""Company_Info"":{""CEO"":""Devin N. Wenig"",""Industry"":""Internet Services and Retailing"",""Sector"":""Technology"",""HQ_Location"":""San Jose, CA"",""Website"":""http://www.ebay.com""}}"
+CAG,"ConAgra Foods, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Sean M. Connolly"",""Industry"":""Food Consumer Products"",""Sector"":""Food, Beverages & Tobacco"",""HQ_Location"":""Omaha, NE"",""Website"":""http://www.conagrafoods.com""}}"
+LEA,Lear Corp.,NYSE,"{""Company_Info"":{""CEO"":""Matthew J. Simoncini"",""Industry"":""Motor Vehicles and Parts"",""Sector"":""Motor Vehicles & Parts"",""HQ_Location"":""Southfield, MI"",""Website"":""http://www.lear.com""}}"
+PAG,"Penske Automotive Group, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Roger S. Penske"",""Industry"":""Automotive Retailing, Services"",""Sector"":""Retailing"",""HQ_Location"":""Bloomfield Hills, MI"",""Website"":""http://www.penskeautomotive.com""}}"
+AES,The AES Corporation,NYSE,"{""Company_Info"":{""CEO"":""Andres R. Gluski"",""Industry"":""Utilities: Gas and Electric"",""Sector"":""Energy"",""HQ_Location"":""Arlington, VA"",""Website"":""http://www.aes.com""}}"
+CL,Colgate-Palmolive Co.,NYSE,"{""Company_Info"":{""CEO"":""Ian M. Cook"",""Industry"":""Household and Personal Products"",""Sector"":""Household Products"",""HQ_Location"":""New York, NY"",""Website"":""http://www.colgatepalmolive.com""}}"
+GLP,Global Partners LP,NYSE,"{""Company_Info"":{""CEO"":""Eric Slifka"",""Industry"":""Wholesalers: Diversified"",""Sector"":""Wholesalers"",""HQ_Location"":""Waltham, MA"",""Website"":""http://www.globalp.com""}}"
+TMO,"Thermo Fisher Scientific, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Marc N. Casper"",""Industry"":""Scientific,Photographic and Control Equipment"",""Sector"":""Technology"",""HQ_Location"":""Waltham, MA"",""Website"":""http://www.thermofisher.com""}}"
+PCG,PG&E Corporation,NYSE,"{""Company_Info"":{""CEO"":""Anthony F. Earley Jr."",""Industry"":""Utilities: Gas and Electric"",""Sector"":""Energy"",""HQ_Location"":""San Francisco, CA"",""Website"":""http://www.pge.com""}}"
+NEE,"NextEra Energy, Inc.",NYSE,"{""Company_Info"":{""CEO"":""James L. Robo"",""Industry"":""Utilities: Gas and Electric"",""Sector"":""Energy"",""HQ_Location"":""Juno Beach, FL"",""Website"":""http://www.nexteraenergy.com""}}"
+AEP,"American Electric Power Co., Inc.",NYSE,"{""Company_Info"":{""CEO"":""Nicholas K. Akins"",""Industry"":""Utilities: Gas and Electric"",""Sector"":""Energy"",""HQ_Location"":""Columbus, OH"",""Website"":""http://www.aep.com""}}"
+CNC,Centene Corp.,NYSE,"{""Company_Info"":{""CEO"":""Michael F. Neidorff"",""Industry"":""Health Care: Insurance and Managed Care"",""Sector"":""Health Care"",""HQ_Location"":""St. Louis, MO"",""Website"":""http://www.centene.com""}}"
+GPS,"The Gap, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Arthur L. Peck"",""Industry"":""Specialty Retailers: Apparel"",""Sector"":""Retailing"",""HQ_Location"":""San Francisco, CA"",""Website"":""http://www.gapinc.com""}}"
+BK,The Bank of New York Mellon Corporation,NYSE,"{""Company_Info"":{""CEO"":""Gerald L. Hassell"",""Industry"":""Commercial Banks"",""Sector"":""Financials"",""HQ_Location"":""New York, NY"",""Website"":""http://www.bnymellon.com""}}"
+MU,"Micron Technology, Inc.",NasdaqGS,"{""Company_Info"":{""CEO"":""D. Mark Durcan"",""Industry"":""Semiconductors and Other Electronic Components"",""Sector"":""Technology"",""HQ_Location"":""Boise, ID"",""Website"":""http://www.micron.com""}}"
+JBL,Jabil Circuit Inc.,NYSE,"{""Company_Info"":{""CEO"":""Mark T. Mondello"",""Industry"":""Semiconductors and Other Electronic Components"",""Sector"":""Technology"",""HQ_Location"":""St. Petersburg, FL"",""Website"":""http://www.jabil.com""}}"
+PNC,"The PNC Financial Services Group, Inc.",NYSE,"{""Company_Info"":{""CEO"":""William S. Demchak"",""Industry"":""Commercial Banks"",""Sector"":""Financials"",""HQ_Location"":""Pittsburgh, PA"",""Website"":""http://www.pnc.com""}}"
+KMI,"Kinder Morgan, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Steven J. Kean"",""Industry"":""Pipelines"",""Sector"":""Energy"",""HQ_Location"":""Houston, TX"",""Website"":""http://www.kindermorgan.com""}}"
+ODP,"Office Depot, Inc.",NasdaqGS,"{""Company_Info"":{""CEO"":""Roland C. Smith"",""Industry"":""Specialty Retailers: Other"",""Sector"":""Retailing"",""HQ_Location"":""Boca Raton, FL"",""Website"":""http://www.officedepot.com""}}"
+BMY,Bristol-Myers Squibb Company,NYSE,"{""Company_Info"":{""CEO"":""Giovanni Caforio"",""Industry"":""Pharmaceuticals"",""Sector"":""Health Care"",""HQ_Location"":""New York, NY"",""Website"":""http://www.bms.com""}}"
+NRG,"NRG Energy, Inc.",NYSE,"{""Company_Info"":{""CEO"":""David W. Crane"",""Industry"":""Energy"",""Sector"":""Energy"",""HQ_Location"":""Princeton, NJ"",""Website"":""http://www.nrgenergy.com""}}"
+MON,Monsanto Company,NYSE,"{""Company_Info"":{""CEO"":""Hugh Grant"",""Industry"":""Chemicals"",""Sector"":""Chemicals"",""HQ_Location"":""St. Louis, MO"",""Website"":""http://www.monsanto.com""}}"
+PPG,"PPG Industries, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Michael H. McGarry"",""Industry"":""Chemicals"",""Sector"":""Chemicals"",""HQ_Location"":""Pittsburgh, PA"",""Website"":""http://www.ppg.com""}}"
+GPC,Genuine Parts Company,NYSE,"{""Company_Info"":{""CEO"":""Thomas C. Gallagher"",""Industry"":""Wholesalers: Diversified"",""Sector"":""Wholesalers"",""HQ_Location"":""Atlanta, GA"",""Website"":""http://www.genpt.com""}}"
+OMC,Omnicom Group Inc.,NYSE,"{""Company_Info"":{""CEO"":""John D. Wren"",""Industry"":""Advertising, marketing"",""Sector"":""Business Services"",""HQ_Location"":""New York, NY"",""Website"":""http://www.omnicomgroup.com""}}"
+ITW,Illinois Tool Works Inc.,NYSE,"{""Company_Info"":{""CEO"":""E. Scott Santi"",""Industry"":""Industrial Machinery"",""Sector"":""Industrials"",""HQ_Location"":""Glenview, IL"",""Website"":""http://www.itw.com""}}"
+MUSA,Murphy USA Inc.,NYSE,"{""Company_Info"":{""CEO"":""R. Andrew Clyde"",""Industry"":""Specialty Retailers: Other"",""Sector"":""Retailing"",""HQ_Location"":""El Dorado, AR"",""Website"":""http://corporate.murphyusa.com""}}"
+WNR,"Western Refining, Inc.",NYSE,"{""Company_Info"":{""CEO"":""Jeff A. Stevens"",""Industry"":""Petroleum Refining"",""Sector"":""Energy"",""HQ_Location"":""El Paso, TX"",""Website"":""http://www.wnr.com""}}"
+WDC,Western Digital Corporation,NasdaqGS,"{""Company_Info"":{""CEO"":""Stephen D. Milligan"",""Industry"":""Computer Peripherals"",""Sector"":""Technology"",""HQ_Location"":""Irvine, CA"",""Website"":""http://www.westerndigital.com""}}"
+FE,FirstEnergy Corp.,NYSE,"{""Company_Info"":{""CEO"":""Charles E. Jones"",""Industry"":""Utilities: Gas and Electric"",""Sector"":""Energy"",""HQ_Location"":""Akron, OH"",""Website"":""http://www.firstenergycorp.com""}}"
+ARMK,Aramark,NYSE,"{""Company_Info"":{""CEO"":""Eric J. Foss"",""Industry"":""Diversified Outsourcing Services"",""Sector"":""Business Services"",""HQ_Location"":""Philadelphia, PA"",""Website"":""http://www.aramark.com""}}"
+DISH,Dish Network Corp.,NasdaqGS,"{""Company_Info"":{""CEO"":""Charles W. Ergen"",""Industry"":""Telecommunications"",""Sector"":""Telecommunications"",""HQ_Location"":""Englewood, CO"",""Website"":""http://www.dish.com""}}"

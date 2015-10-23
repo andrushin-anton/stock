@@ -7,61 +7,51 @@
     <div>
       <table class="table">
         <tr>
-          <td>
-            <h4 class="<%= setup.direction %>">
-              <% if setup.direction == 'BUY_SELL' %>
-                  <span class="BUY">BUY</span> / <span class="SELL">SELL</span>
-              <% else %>
-                  <%= setup.direction %>
-              <% end %>
-            </h4>
-            <p>
-              Symbol: <strong><%= setup.symbol %></strong>&nbsp;Exchange: <strong><%= setup.item.market %></strong>
-            </p>
-            <p>
-              <% levels = JSON.parse setup.levels %>
-              <% levels.each do |level| %>
-                <% if level.has_key?('buy_stop') %>
-                    <i>
-                      Buy Stop: <strong><%= level['buy_stop'].round(2) %></strong>&nbsp;Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong>&nbsp;Take profit: <strong><%= level['take_profit'].round(2) %></strong>
-                    </i>
-                <% end %>
-                <% if level.has_key?('sell_stop') %>
-                    <i>
-                      Sell Stop: <strong><%= level['sell_stop'].round(2) %></strong>&nbsp;Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong>&nbsp;Take profit: <strong><%= level['take_profit'].round(2) %></strong>
-                    </i>
+          <td style="width:30%;">
+            <p><strong><i>Company Info</i></strong></p>
+            <p>Symbol: <strong><%= setup.symbol %></strong></p>
+            <p>Exchange: <strong><%= setup.item.market %></strong></p>
+            <% unless setup.item.description.nil? %>
+            <% desc = JSON.parse setup.item.description %>
+                <% if desc.has_key?('Company_Info') %>
+                    <% company = desc['Company_Info'] %>
+                    <% if company.has_key?('CEO') %>
+                        <p>CEO: <%= company['CEO'] %></p>
+                    <% end %>
+                    <% if company.has_key?('Industry') %>
+                        <p>Industry: <%= company['Industry'] %></p>
+                    <% end %>
+                    <% if company.has_key?('Sector') %>
+                        <p>Sector: <%= company['Sector'] %></p>
+                    <% end %>
+                    <% if company.has_key?('HQ_Location') %>
+                        <p>HQ Location: <%= company['HQ_Location'] %></p>
+                    <% end %>
+                    <% if company.has_key?('Website') %>
+                        <p>Website: <a href="<%= company['Website'] %>"><%= company['Website'] %></a></p>
+                    <% end %>
                 <% end %>
             <% end %>
-            </p>
-              <p>
-                <% unless setup.item.description.nil? %>
-                <% desc = JSON.parse setup.item.description %>
-
-                    <% if desc.has_key?('Company_Info') %>
-                        <i>Company Info</i>
-                        <% company = desc['Company_Info'] %>
-                        <% if company.has_key?('CEO') %>
-                            <p>CEO: <%= company['CEO'] %></p>
-                        <% end %>
-                        <% if company.has_key?('Industry') %>
-                            <p>Industry: <%= company['Industry'] %></p>
-                        <% end %>
-                        <% if company.has_key?('Sector') %>
-                            <p>Sector: <%= company['Sector'] %></p>
-                        <% end %>
-                        <% if company.has_key?('HQ_Location') %>
-                            <p>HQ Location: <%= company['HQ_Location'] %></p>
-                        <% end %>
-                        <% if company.has_key?('Website') %>
-                            <p>Website: <%= company['Website'] %></p>
-                        <% end %>
-                    <% end %>
-
-                <% end %>
-                </p>
           </td>
-          <td>
-            <h4>&nbsp;</h4>
+          <td style="width:30%;">
+            <p><strong><i>Advice</i></strong>&nbsp;<span class="<%= setup.direction %>"><%= setup.direction %></span></p>
+              <% levels = JSON.parse setup.levels %>
+              <% levels.each do |level| %>
+                  <% if level.has_key?('buy_stop') %>
+                    <p class="BUY">Buy Stop: <strong><%= level['buy_stop'].round(2) %></strong></p>
+                    <p>Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong></p>
+                    <p>Take profit: <strong><%= level['take_profit'].round(2) %></strong></p>
+                  <% end %>
+                  <% if level.has_key?('sell_stop') %>
+                    <p class="SELL">Sell Stop: <strong><%= level['sell_stop'].round(2) %></strong></p>
+                    <p>Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong></p>
+                    <p>Take profit: <strong><%= level['take_profit'].round(2) %></strong></p>
+                  <% end %>
+              <% end %>
+              <p>Date: <%= setup.datetime.strftime('%B %d, %Y') %></p>
+          </td>
+          <td style="width:40%;">
+            <p><strong><i>Calculations Rating:<%= setup.rating %></i></strong></p>
             <table class="table" id="mm_<%= setup.symbol%>_<%= setup.pattern_object.name%>_<%= setup.datetime.to_time.to_i%>">
               <tr><td>Account size <small>with overnight margin</small>: </td><td><input type="text" class="form-control total_money" placeholder="100000" onkeyup="calculate_total('mm_<%= setup.symbol%>_<%= setup.pattern_object.name%>_<%= setup.datetime.to_time.to_i%>', '<%= setup.direction %>', '<%= setup.levels %>')"></td></tr>
               <tr><td>Max risk %: </td><td><input type="text" class="form-control risk_percent" value="2"></td></tr>

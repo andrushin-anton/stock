@@ -2,7 +2,7 @@ class Pattern < ActiveRecord::Base
   require 'json'
   belongs_to :setup, :foreign_key => 'name', :primary_key => 'pattern'
 
-  def MACD_STOCHASTIC(data, item)
+  def M_S(data, item)
     macd = Macd.new(data)
     stochastic = Stochastic.new
     moving_average = MovingAverage.new
@@ -23,18 +23,23 @@ class Pattern < ActiveRecord::Base
     # 3.The Stochastic Oscillator is less than 50 and this reading is also heading higher
 
     # 1.The stock is greater than its 200-day Moving Average
-    if last_candle.close >= sma200
+    #if last_candle.close >= sma200
       # 2.The MACD value crosses signal from bottom
       if (yesterday_macd.value < macd.value) && (yesterday_macd.signal > yesterday_macd.value) && (macd.value > macd.signal)
         # 3.The Stochastic Oscillator is less than 50 and this reading is also heading higher
-        if yesterday_stochastic.k < 50
+        if yesterday_stochastic.k < 21 && stochastic.k > 21
           stop_loss = stochastic.min
           take_profit = last_candle.high + (last_candle.high * 0.15)
           levels = [{ :take_profit => take_profit, :buy_stop => last_candle.high + 0.02, :stop_loss => stop_loss - 0.02, :macd => macd.value, :signal => macd.signal, :gistogram => macd.gistogram, :stochastic => stochastic.k, :sma200 => sma200 }].to_json
-          save_setup(item,data,'MACD_STOCHASTIC','BUY',levels)
+          # Calculate rating
+          profit = take_profit - (last_candle.high + 0.02)
+          risk = (last_candle.high + 0.02) - (stop_loss - 0.02)
+          rating = profit / risk
+          # Save setup
+          save_setup(item,data,'M_S','BUY',levels, rating)
         end
       end
-    end
+    #end
 
     # SELL
     # Sell to open stocks when all the following criteria are met,
@@ -44,22 +49,22 @@ class Pattern < ActiveRecord::Base
     # 3.The Stochastic Oscillator is greater than 50 and this reading is also heading lower
 
     # 1.The stock is less than its 200-day Moving Average
-    if last_candle.close <= sma200
-      # 2.The MACD value crosses signal from top
-      if (yesterday_macd.value > macd.value) && (yesterday_macd.signal < yesterday_macd.value) && (macd.value < macd.signal)
-        # 3.The Stochastic Oscillator is greater than 50 and this reading is also heading higher
-        if yesterday_stochastic.k > 50
-          stop_loss = stochastic.max
-          take_profit = last_candle.low - (last_candle.low * 0.15)
-          levels = [{ :take_profit => take_profit, :sell_stop => last_candle.low - 0.02, :stop_loss => stop_loss + 0.02, :macd => macd.value, :signal => macd.signal, :gistogram => macd.gistogram, :stochastic => stochastic.k, :sma200 => sma200 }].to_json
-          save_setup(item,data,'MACD_STOCHASTIC','SELL',levels)
-        end
-      end
-    end
+    # if last_candle.close <= sma200
+    #   # 2.The MACD value crosses signal from top
+    #   if (yesterday_macd.value > macd.value) && (yesterday_macd.signal < yesterday_macd.value) && (macd.value < macd.signal)
+    #     # 3.The Stochastic Oscillator is greater than 50 and this reading is also heading higher
+    #     if yesterday_stochastic.k > 50
+    #       stop_loss = stochastic.max
+    #       take_profit = last_candle.low - (last_candle.low * 0.15)
+    #       levels = [{ :take_profit => take_profit, :sell_stop => last_candle.low - 0.02, :stop_loss => stop_loss + 0.02, :macd => macd.value, :signal => macd.signal, :gistogram => macd.gistogram, :stochastic => stochastic.k, :sma200 => sma200 }].to_json
+    #       save_setup(item,data,'MACD_STOCHASTIC','SELL',levels)
+    #     end
+    #   end
+    # end
   end
 
   private
-    def save_setup(item, data, pattern, direction, levels)
+    def save_setup(item, data, pattern, direction, levels, rating)
       unless Setup.where(:datetime => data[0].date, :symbol => item.symbol, :pattern => pattern).first
         setup = Setup.new
         setup.name = item.name
@@ -70,6 +75,7 @@ class Pattern < ActiveRecord::Base
         setup.direction = direction
         setup.levels = levels
         setup.price = data[0].close
+        setup.rating = rating
         setup.save
       end
     end

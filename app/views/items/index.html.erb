@@ -17,5 +17,7 @@
     <% end %>
   </tbody>
 </table>
-<br>
-<%= will_paginate @items, renderer: BootstrapPagination::Rails %>
+
+<div class="paging">
+    <%= will_paginate @items, renderer: BootstrapPagination::Rails %>
+</div>

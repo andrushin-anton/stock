@@ -1,17 +1,11 @@
 Rails.application.routes.draw do
   resources :pages
-
   resources :setups
 
-  resources :patterns
-
-  resources :prices
-
-  resources :items
-
+  get 'setups/:id' => 'setups#show'
   get 'setups/filter/:pattern' => 'setups#filter'
   get 'setups/symbol/:symbol' => 'setups#symbol'
-  get 'items/show/:symbol' => 'items#show'
+  get 'items' => 'items#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

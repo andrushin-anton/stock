@@ -4,7 +4,7 @@ class SetupsController < ApplicationController
   # GET /setups
   # GET /setups.json
   def index
-    @setups = Setup.order('datetime desc, price asc').paginate(:page => params[:page], :per_page => 10)
+    @setups = Setup.where('rating >= 4.0').order('datetime desc, price asc').paginate(:page => params[:page], :per_page => 10)
     @setups.each do |setup|
       Price.table_name = 'D_' + setup.symbol
       setup.create_attr('quotes')
@@ -41,7 +41,7 @@ class SetupsController < ApplicationController
     @setup = Setup.find_by_slug(params[:id]) or not_found
     Price.table_name = 'D_' + @setup.symbol
     @setup.create_attr('quotes')
-    @setup.quotes = Price.where('date <= ?', Time.at(@setup.datetime + 60.days).to_datetime).order('date desc').first(150).reverse
+    @setup.quotes = Price.where('date <= ?', Time.at(@setup.datetime + 150.days).to_datetime).order('date desc').first(150).reverse
   end
 
   # GET /setups/new

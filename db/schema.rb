@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015080213) do
+ActiveRecord::Schema.define(version: 20151020103511) do
 
   create_table "D_AA", force: :cascade do |t|
     t.datetime "date"
@@ -49,6 +49,18 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_ABBV", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_ABC", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
@@ -61,7 +73,43 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_ABT", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_ADM", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_AEP", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_AES", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -121,6 +169,18 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_AMGN", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_AMIC", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
@@ -145,6 +205,18 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_AN", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_ANTM", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
@@ -157,7 +229,55 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_APC", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_ARMK", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_ARW", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_ASR", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_AVT", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -229,6 +349,42 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_BHI", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_BK", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_BMY", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_BP", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
@@ -265,6 +421,18 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_CAG", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_CAH", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
@@ -289,6 +457,18 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_CHK", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_CI", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
@@ -301,7 +481,55 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_CL", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_CMCSA", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_CMI", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_CNC", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_COF", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -349,6 +577,18 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_CTL", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_CVS", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
@@ -373,7 +613,31 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_CYH", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_DAL", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_DD", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -421,6 +685,30 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_DG", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_DHR", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_DIS", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
@@ -433,7 +721,91 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_DISH", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_DOW", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_DUK", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_DVN", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_EBAY", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_EMC", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_EMR", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_EOG", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -481,6 +853,18 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_EXC", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_F", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
@@ -505,7 +889,43 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_FCX", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_FDX", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_FE", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_FLR", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -529,7 +949,79 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_FOX", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_GD", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_GE", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_GILD", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_GIS", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_GLP", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_GM", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -553,7 +1045,43 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_GPC", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_GPS", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_GS", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_GT", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -601,6 +1129,42 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_HES", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_HFC", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_HIG", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_HPQ", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
@@ -626,6 +1190,18 @@ ActiveRecord::Schema.define(version: 20151015080213) do
   end
 
   create_table "D_IBM", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_IEP", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -685,6 +1261,42 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_IP", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_ITW", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_JBL", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_JCI", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
@@ -721,6 +1333,30 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_KMB", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_KMI", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_KO", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
@@ -745,6 +1381,42 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_KSS", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_LEA", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_LLY", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_LMT", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
@@ -758,6 +1430,42 @@ ActiveRecord::Schema.define(version: 20151015080213) do
   end
 
   create_table "D_LOW", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_LUV", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_M", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_MAN", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -829,6 +1537,30 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_MO", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_MON", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_MPC", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
@@ -877,7 +1609,127 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_MU", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_MUSA", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_NEE", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_NKE", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_NOC", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_NOV", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_NRG", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_NUE", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_NWE", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_ODP", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_OMC", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -901,7 +1753,67 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_OXY", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_PAG", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_PAGP", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_PBF", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_PCAR", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_PCG", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -949,6 +1861,54 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_PGR", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_PM", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_PNC", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_PPG", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_PRU", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
@@ -973,6 +1933,42 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_QCOM", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_RAD", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_RTN", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_SBUX", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
@@ -985,7 +1981,55 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_SHLD", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_SO", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_SPAN", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_SPLS", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_SVU", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -1021,7 +2065,55 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_TECD", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_TGT", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_THC", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_TJX", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_TMO", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -1069,7 +2161,31 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_TWC", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_TWTR", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_TWX", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -1105,7 +2221,31 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_UNP", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_UPS", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_USB", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -1177,6 +2317,18 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_WDC", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_WFC", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
@@ -1189,7 +2341,31 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.datetime "updated_at",            null: false
   end
 
+  create_table "D_WHR", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "D_WMT", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_WNR", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -1214,6 +2390,18 @@ ActiveRecord::Schema.define(version: 20151015080213) do
   end
 
   create_table "D_XOM", force: :cascade do |t|
+    t.datetime "date"
+    t.float    "open",       limit: 24
+    t.float    "hight",      limit: 24
+    t.float    "low",        limit: 24
+    t.float    "close",      limit: 24
+    t.integer  "volume",     limit: 4
+    t.float    "adj_close",  limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  create_table "D_XRX", force: :cascade do |t|
     t.datetime "date"
     t.float    "open",       limit: 24
     t.float    "hight",      limit: 24
@@ -1296,6 +2484,7 @@ ActiveRecord::Schema.define(version: 20151015080213) do
     t.float    "price",      limit: 24
     t.string   "slug",       limit: 255
     t.text     "levels",     limit: 65535
+    t.float    "rating",     limit: 24
   end
 
 end
