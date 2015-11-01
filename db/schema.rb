@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151020103511) do
+ActiveRecord::Schema.define(version: 20151031162916) do
 
   create_table "D_AA", force: :cascade do |t|
     t.datetime "date"
@@ -2444,6 +2444,14 @@ ActiveRecord::Schema.define(version: 20151020103511) do
     t.datetime "updated_at",                null: false
     t.string   "market",      limit: 255
     t.text     "description", limit: 65535
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string   "symbol",     limit: 255
+    t.datetime "datetime"
+    t.string   "pattern",    limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "pages", force: :cascade do |t|

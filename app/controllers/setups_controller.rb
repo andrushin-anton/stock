@@ -4,7 +4,7 @@ class SetupsController < ApplicationController
   # GET /setups
   # GET /setups.json
   def index
-    @setups = Setup.where('rating >= 4.0').order('datetime desc, price asc').paginate(:page => params[:page], :per_page => 10)
+    @setups = Setup.order('datetime desc, price asc, rating desc').paginate(:page => params[:page], :per_page => 10)
     @setups.each do |setup|
       Price.table_name = 'D_' + setup.symbol
       setup.create_attr('quotes')

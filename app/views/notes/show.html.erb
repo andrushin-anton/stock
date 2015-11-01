@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Symbol:</strong>
+  <%= @note.symbol %>
+</p>
+
+<p>
+  <strong>Datetime:</strong>
+  <%= @note.datetime %>
+</p>
+
+<p>
+  <strong>Pattern:</strong>
+  <%= @note.pattern %>
+</p>
+
+<%= link_to 'Edit', edit_note_path(@note) %> |
+<%= link_to 'Back', notes_path %>

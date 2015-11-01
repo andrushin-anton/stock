@@ -29,20 +29,6 @@ class Stochastic
     @k = (100 * ((current_close - @min) / (@max - @min))).round(2)
 
     # вычисляем d
-    # average_d = 0.0;
-    # for day in 0 ... 3
-    #   min_array = []
-    #   max_array = []
-    #   current_close = data[day].close
-    #
-    #   for index in 0 ... 5
-    #     min_array << data[index].low
-    #     max_array << data[index].hight
-    #   end
-    #
-    #   average_d = average_d + ((current_close - min_array.min) / (max_array.max - min_array.min) * 100)
-    # end
-    #
-    # @d = average_d / 3.0
+    # @d = calculate_d(data)
   end
 end
