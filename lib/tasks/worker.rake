@@ -6,7 +6,7 @@ namespace :worker do
     Item.all().each do |item|
       Price.table_name = 'D_'+item.symbol
       # Get data for last 3 days for this stock
-      ten_days_data = Price.where("date < '" + DateTime.now.strftime('%Y-%m-%d 00:00:00') + "'").order('date desc').first(500)
+      ten_days_data = Price.where("date < '" + DateTime.now.strftime('%Y-%m-%d 00:00:00') + "'").order('date desc').first(501)
       if ten_days_data.length > 1
         # Loop through all of the existing pattens
         Pattern.all().each do |pattern|
@@ -25,10 +25,10 @@ namespace :worker do
     i = 1
     Item.all().each do |item|
       # if ['MCD','FB','MRK','INTC','HD','CMCSA','HCA','TJX','NOC','TWC','USB','USB','DHR','PGR','PCAR','GIS','JBL','PNC','OMC','ARMK'].include? item.symbol
-      #if ['HPQ','FB'].include? item.symbol
+      # if ['VLO'].include? item.symbol
          Price.table_name = 'D_'+item.symbol
-        ('2014-01-01'.to_datetime.to_i .. DateTime.yesterday.strftime('%Y-%m-%d').to_datetime.to_i).step(1.day) do |date|
-          ten_days_data = Price.where('date <= ?', Time.at(date).to_datetime).order('date desc').first(500)
+        ('2013-01-01'.to_datetime.to_i .. DateTime.yesterday.strftime('%Y-%m-%d').to_datetime.to_i).step(1.day) do |date|
+          ten_days_data = Price.where('date <= ?', Time.at(date).to_datetime).order('date desc').first(501)
           if ten_days_data.length > 1
             # Loop through all of the existing pattens
             Pattern.all().each do |pattern|

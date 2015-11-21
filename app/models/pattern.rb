@@ -116,9 +116,12 @@ class Pattern < ActiveRecord::Base
   end
 
 
-  def MA(data, item)
+  def MA_OLD(data, item)
     last = data
     yesterday = data.drop(1)
+    yesterday2 = data.drop(2)
+    yesterday3 = data.drop(3)
+    yesterday4 = data.drop(4)
     last_candle = Candle.new(last[0])
     moving_average = MovingAverage.new
     # today
@@ -129,12 +132,25 @@ class Pattern < ActiveRecord::Base
     # yesterday
     y_sma100 = moving_average.sma(100, yesterday)
     y_sma150 = moving_average.sma(150, yesterday)
-    # stochastic
-    stochastic = Stochastic.new
-    stochastic.calculate(data)
-    # macd
-    macd = Macd.new(data)
-    yesterday_macd = Macd.new(yesterday)
+    # rsi
+    rsi_indicator = Rsi.new
+    rsi_today = rsi_indicator.calculate(data)
+    rsi_yesterday = rsi_indicator.calculate(yesterday)
+    rsi_yesterday2 = rsi_indicator.calculate(yesterday2)
+    rsi_yesterday3 = rsi_indicator.calculate(yesterday3)
+    rsi_yesterday4 = rsi_indicator.calculate(yesterday4)
+
+    min_45_days = rsi_indicator.min(last)
+    prev_year = data.drop(356)
+    unless prev_year[0].nil?
+      prev_year_price = prev_year[0].close
+    else
+      prev_year_price = last[0].close
+    end
+
+    prev_yeah_proc = prev_year_price * 0.39
+    prev_year_price = prev_year_price + prev_yeah_proc
+
 
     # Find sma cross and save in notes
     # if yesterday sma100 <= sma150 and today sma100 > sma150
@@ -153,23 +169,84 @@ class Pattern < ActiveRecord::Base
     if (sma100 > sma150) && (sma150 > sma200) && (sma200 > sma300)
       # if last close price > sma150
       if (last_candle.close > sma150)
-        # The MACD value crosses signal from bottom
-        if (yesterday_macd.value < macd.value) && (yesterday_macd.signal > yesterday_macd.value) && (macd.value > macd.signal)
-          if Note.where('datetime >= ? and symbol = ? AND pattern = ?', Time.at(data[0].date - 31.days).to_datetime, item.symbol, 'MA').first
-            stop_loss = stochastic.min
-            take_profit = last_candle.high + (last_candle.high * 0.2)
-            levels = [{ :take_profit => take_profit, :buy_stop => last_candle.high + 0.02, :stop_loss => stop_loss - 0.02 }].to_json
-            # Calculate rating
-            profit = take_profit - (last_candle.high + 0.02)
-            risk = (last_candle.high + 0.02) - (stop_loss - 0.02)
-            rating = profit / risk
-            # if rating >= 1.5 - save
-            #if rating >= 1.5
-              # Save setup
-              save_setup(item,data,'MA','BUY',levels, rating)
-            #end
+        # RSI crosses 50 from bottom
+        if (rsi_today >= 50) && (rsi_yesterday <= 50) && (rsi_yesterday2 <= 50) && (rsi_yesterday3 <= 50) && (rsi_yesterday4 <= 50)
+          if Note.where('datetime >= ? and symbol = ? AND pattern = ?', Time.at(data[0].date - 45.days).to_datetime, item.symbol, 'MA').first
+            # if in last 45 days min price was less than sma300
+            if (min_45_days > sma300)
+              # if from year ago price didn't grow more than 40%
+              if (prev_year_price > last[0].close)
+                stop_loss = sma100 - 0.05
+                take_profit = last_candle.high + (last_candle.high * 0.2)
+                levels = [{ :take_profit => take_profit, :buy_stop => last_candle.high + 0.02, :stop_loss => stop_loss }].to_json
+                # Calculate rating
+                profit = take_profit - (last_candle.high + 0.02)
+                risk = (last_candle.high + 0.02) - (stop_loss - 0.02)
+                rating = profit / risk
+                # if rating >= 1.5 - save
+                #if rating >= 1.5
+                # Save setup
+                save_setup(item,data,'MA','BUY',levels, rating)
+                #end
+              end
+            end
           end
         end
+      end
+    end
+  end
+
+  def MA(data, item)
+    last = data
+    yesterday = data.drop(1)
+    two_months_ago = data.drop(40)
+    last_candle = Candle.new(last[0])
+    moving_average = MovingAverage.new
+    # today
+    sma100 = moving_average.sma(100, data)
+    sma200 = moving_average.sma(200, data)
+    sma300 = moving_average.sma(300, data)
+    sma400 = moving_average.sma(400, data)
+    sma500 = moving_average.sma(500, data)
+    # yesterday
+    y_sma100 = moving_average.sma(100, yesterday)
+    # two months ago
+    two_month_sma100 = moving_average.sma(100, two_months_ago)
+    two_month_sma200 = moving_average.sma(200, two_months_ago)
+    two_month_sma300 = moving_average.sma(300, two_months_ago)
+    two_month_sma400 = moving_average.sma(400, two_months_ago)
+    two_month_sma500 = moving_average.sma(500, two_months_ago)
+
+    smas = []
+    two_months_smas = []
+
+    smas << sma200
+    smas << sma300
+    smas << sma400
+    smas << sma500
+
+    two_months_smas << two_month_sma200
+    two_months_smas << two_month_sma300
+    two_months_smas << two_month_sma400
+    two_months_smas << two_month_sma500
+
+
+    # if sma100 crosses smas max from bottom to top
+    if (y_sma100 <= smas.max) && (sma100 > smas.max)
+      # if 2 months ago sma100 was less than two_months_smas.min
+      if (two_month_sma100 < two_months_smas.min)
+        stop_loss = sma200 - 0.05
+        take_profit = last_candle.high + (last_candle.high * 0.2)
+        levels = [{ :take_profit => take_profit, :buy_stop => last_candle.high + 0.02, :stop_loss => stop_loss }].to_json
+        # Calculate rating
+        profit = take_profit - (last_candle.high + 0.02)
+        risk = (last_candle.high + 0.02) - (stop_loss - 0.02)
+        rating = profit / risk
+        # if rating >= 1.5 - save
+        #if rating >= 1.5
+        # Save setup
+        save_setup(item,data,'MA','BUY',levels, rating)
+        #end
       end
     end
   end
