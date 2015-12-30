@@ -4,77 +4,61 @@
     $(function () {
         var data = [
             <% setup.quotes.each do |day| %>
-            [<%= day.date.to_i %>000,<%= day.open %>,<%= day.hight %>,<%= day.low %>,<%= day.close %>],
-            <% end %>
-        ];
-        var volume = [
-            <% setup.quotes.each do |day| %>
-            [<%= day.date.to_i %>000,<%= day.volume %>],
+            [<%= day.date.to_i %>000,<%= day.open %>,<%= day.high %>,<%= day.low %>,<%= day.close %>],
             <% end %>
         ];
         // create the chart
         $('#chart_div_<%= setup.symbol%>_<%= setup.pattern_object.name%>_<%= setup.datetime.to_time.to_i%>').highcharts('StockChart', {
+            title: {
+                text: '<%= setup.name%>'
+            },
+            subtitle: {
+                text: '<%= setup.datetime.strftime('%B %d, %Y') %>'
+            },
+            xAxis: {
+                gapGridLineWidth: 0
+            },
             rangeSelector : {
-                selected : <%= selected %>
+                buttons : [{
+                    type : 'day',
+                    count : 1,
+                    text : '1D'
+                }, {
+                    type : 'all',
+                    count : 1,
+                    text : 'All'
+                }],
+                selected : 1,
+                inputEnabled : false
             },
-            title : {
-                text : ''
-            },
-            yAxis: [{
-                labels: {
-                    align: 'right',
-                    x: -3
-                },
-                title: {
-                    text: 'OHLC'
-                },
-                height: '60%',
-                lineWidth: 2
-            }, {
-                labels: {
-                    align: 'right',
-                    x: -3
-                },
-                title: {
-                    text: 'Volume'
-                },
-                top: '65%',
-                height: '35%',
-                offset: 0,
-                lineWidth: 2
-            }],
             series : [{
-                type : 'line',
-                id : '<%= setup.symbol%>_<%= setup.pattern_object.name%>_<%= setup.datetime.to_time.to_i%>',
-                name : '<%= setup.name %>',
+                name : '<%=setup.name%>',
+                type: 'area',
                 data : data,
-                dataGrouping : {
-                    units : [
-                        [
-                            'week', // unit name
-                            [1] // allowed multiples
-                        ], [
-                            'month',
-                            [1, 2, 3, 4, 6]
-                        ]
+                gapSize: 5,
+                tooltip: {
+                    valueDecimals: 2
+                },
+                fillColor : {
+                    linearGradient : {
+                        x1: 0,
+                        y1: 0,
+                        x2: 0,
+                        y2: 1
+                    },
+                    stops : [
+                        [0, Highcharts.getOptions().colors[0]],
+                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
                     ]
-                }
-            }, {
-                type: 'column',
-                name: 'Volume',
-                data: volume,
-                yAxis: 1,
-                dataGrouping: {
-                    units : [
-                        [
-                            'week', // unit name
-                            [1] // allowed multiples
-                        ], [
-                            'month',
-                            [1, 2, 3, 4, 6]
-                        ]
-                    ]
-                }
+                },
+                threshold: null
+                // the event marker flags
+                }, {
+                type : 'flags',
+                data : [{
+                    x : Date.UTC(<%=setup.datetime.strftime('%Y').to_i%>, <%=setup.datetime.strftime('%m').to_i - 1%>, <%=setup.datetime.strftime('%d').to_i%>),
+                    title : 'Buy'
+                }]
             }]
         });
     });

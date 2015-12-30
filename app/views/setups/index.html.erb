@@ -7,12 +7,29 @@
     <div>
       <table class="table">
         <tr>
-          <td style="width:30%;">
+          <td style="width:25%;">
+            <p><strong><i>Advice</i></strong>&nbsp;<span class="<%= setup.direction %>"><%= setup.direction %></span></p>
+              <% levels = JSON.parse setup.levels %>
+              <% levels.each do |level| %>
+                  <% if level.has_key?('buy_stop') %>
+                    <p class="BUY">Buy Stop: <strong><%= level['buy_stop'].round(2) %></strong></p>
+                    <p>Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong></p>
+                    <p>Take profit: <strong><%= level['take_profit'].round(2) %></strong></p>
+                  <% end %>
+                  <% if level.has_key?('sell_stop') %>
+                    <p class="SELL">Sell Stop: <strong><%= level['sell_stop'].round(2) %></strong></p>
+                    <p>Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong></p>
+                    <p>Take profit: <strong><%= level['take_profit'].round(2) %></strong></p>
+                  <% end %>
+              <% end %>
+              <p>Date: <%= setup.datetime.strftime('%B %d, %Y') %></p>
+          </td>
+          <td style="width:35%;">
             <p><strong><i>Company Info</i></strong></p>
             <p>Symbol: <strong><%= setup.symbol %></strong></p>
             <p>Exchange: <strong><%= setup.item.market %></strong></p>
             <% unless setup.item.description.nil? %>
-            <% desc = JSON.parse setup.item.description %>
+                <% desc = JSON.parse setup.item.description %>
                 <% if desc.has_key?('Company_Info') %>
                     <% company = desc['Company_Info'] %>
                     <% if company.has_key?('CEO') %>
@@ -32,23 +49,6 @@
                     <% end %>
                 <% end %>
             <% end %>
-          </td>
-          <td style="width:30%;">
-            <p><strong><i>Advice</i></strong>&nbsp;<span class="<%= setup.direction %>"><%= setup.direction %></span></p>
-              <% levels = JSON.parse setup.levels %>
-              <% levels.each do |level| %>
-                  <% if level.has_key?('buy_stop') %>
-                    <p class="BUY">Buy Stop: <strong><%= level['buy_stop'].round(2) %></strong></p>
-                    <p>Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong></p>
-                    <p>Take profit: <strong><%= level['take_profit'].round(2) %></strong></p>
-                  <% end %>
-                  <% if level.has_key?('sell_stop') %>
-                    <p class="SELL">Sell Stop: <strong><%= level['sell_stop'].round(2) %></strong></p>
-                    <p>Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong></p>
-                    <p>Take profit: <strong><%= level['take_profit'].round(2) %></strong></p>
-                  <% end %>
-              <% end %>
-              <p>Date: <%= setup.datetime.strftime('%B %d, %Y') %></p>
           </td>
           <td style="width:40%;">
             <p><strong><i>Calculations</i></strong></p>

@@ -309,8 +309,8 @@ class Pattern < ActiveRecord::Base
     fifty_ma_three_years_low = Price.where('date > ? and date <= ?', three_years_back, data[0].date).order('fifty_average asc').first
     # If it is not the start of the history data
     if Price.where('date < ?', (fifty_ma_three_years_low.date - 2.months)).first
-      # Find local high (3 months back)
-      local_high = Price.where('date >= ? and date <= ?', (fifty_ma_three_years_low.date - 3.months), fifty_ma_three_years_low.date).order('high desc').first
+      # Find local high (5 months back)
+      local_high = Price.where('date >= ? and date <= ?', (fifty_ma_three_years_low.date - 5.months), fifty_ma_three_years_low.date).order('high desc').first
 
       unless local_high.nil?
         unless data[1].nil?

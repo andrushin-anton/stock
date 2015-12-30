@@ -1,12 +1,31 @@
 <% content_for :title, @setup.name + ' ' + @setup.datetime.strftime('%B %d, %Y') + ' ' + @setup.direction + ' | Stock2.Watch' %>
-<div class="page-header">
-  <h1><%= @setup.name %> <small><%= @setup.datetime.strftime('%B %d, %Y') %></small></h1>
+<br>
+<br>
+<div>
+  <%= render :partial => 'highchart', :locals => { :setup => @setup, :width => '100%', :height => '500px', :selected => 1 } %>
 </div>
 <br>
 <div>
   <table class="table">
     <tr>
-      <td style="width:30%;">
+      <td style="width:25%;">
+        <p><strong><i>Advice</i></strong>&nbsp;<span class="<%= @setup.direction %>"><%= @setup.direction %></span></p>
+        <% levels = JSON.parse @setup.levels %>
+        <% levels.each do |level| %>
+            <% if level.has_key?('buy_stop') %>
+                <p class="BUY">Buy Stop: <strong><%= level['buy_stop'].round(2) %></strong></p>
+                <p>Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong></p>
+                <p>Take profit: <strong><%= level['take_profit'].round(2) %></strong></p>
+            <% end %>
+            <% if level.has_key?('sell_stop') %>
+                <p class="SELL">Sell Stop: <strong><%= level['sell_stop'].round(2) %></strong></p>
+                <p>Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong></p>
+                <p>Take profit: <strong><%= level['take_profit'].round(2) %></strong></p>
+            <% end %>
+        <% end %>
+        <p>Date: <%= @setup.datetime.strftime('%B %d, %Y') %></p>
+      </td>
+      <td style="width:35%;">
         <p><strong><i>Company Info</i></strong></p>
         <p>Symbol: <strong><%= @setup.symbol %></strong></p>
         <p>Exchange: <strong><%= @setup.item.market %></strong></p>
@@ -32,23 +51,6 @@
             <% end %>
         <% end %>
       </td>
-      <td style="width:30%;">
-        <p><strong><i>Advice</i></strong>&nbsp;<span class="<%= @setup.direction %>"><%= @setup.direction %></span></p>
-        <% levels = JSON.parse @setup.levels %>
-        <% levels.each do |level| %>
-            <% if level.has_key?('buy_stop') %>
-                <p class="BUY">Buy Stop: <strong><%= level['buy_stop'].round(2) %></strong></p>
-                <p>Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong></p>
-                <p>Take profit: <strong><%= level['take_profit'].round(2) %></strong></p>
-            <% end %>
-            <% if level.has_key?('sell_stop') %>
-                <p class="SELL">Sell Stop: <strong><%= level['sell_stop'].round(2) %></strong></p>
-                <p>Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong></p>
-                <p>Take profit: <strong><%= level['take_profit'].round(2) %></strong></p>
-            <% end %>
-        <% end %>
-        <p>Date: <%= @setup.datetime.strftime('%B %d, %Y') %></p>
-      </td>
       <td style="width:40%;">
         <p><strong><i>Calculations</i></strong></p>
         <table class="table" id="mm_<%= @setup.symbol%>_<%= @setup.pattern_object.name%>_<%= @setup.datetime.to_time.to_i%>">
@@ -62,8 +64,3 @@
     </tr>
   </table>
 </div>
-<br>
-<div>
-  <%= render :partial => 'amchart', :locals => { :setup => @setup, :width => '100%', :height => '500px', :selected => 1 } %>
-</div>
-<br>

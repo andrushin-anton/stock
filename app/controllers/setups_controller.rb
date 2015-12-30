@@ -41,7 +41,7 @@ class SetupsController < ApplicationController
     @setup = Setup.find_by_slug(params[:id]) or not_found
     Price.table_name = 'D_' + @setup.symbol
     @setup.create_attr('quotes')
-    @setup.quotes = Price.where('date <= ?', Time.at(@setup.datetime + 150.days).to_datetime).order('date desc').first(150).reverse
+    @setup.quotes = Price.order('date desc').all().reverse
   end
 
   # GET /setups/new

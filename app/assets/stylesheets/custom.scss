@@ -16,26 +16,26 @@ body, input, select, textarea {
 
 @media (min-width: 768px) {
   .container {
-    width: 550px;
+    width: 500px;
   }
   .header-wrapper {
-    width: 550px;
+    width: 500px;
   }
 }
 @media (min-width: 992px) {
   .container {
-    width: 770px;
+    width: 700px;
   }
   .header-wrapper {
-    width: 770px;
+    width: 700px;
   }
 }
 @media (min-width: 1200px) {
   .container {
-    width: 970px;
+    width: 900px;
   }
   .header-wrapper {
-    width: 970px;
+    width: 900px;
   }
 }
 .container {
@@ -43,6 +43,14 @@ body, input, select, textarea {
 }
 .page-header {
   margin:40px 0 0px;
+}
+
+.page-header small {
+  font-size: 18px;
+}
+
+.header-link {
+  font-size: 22px;
 }
 
 .header-link:hover {
