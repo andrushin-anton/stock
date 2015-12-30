@@ -115,7 +115,6 @@ class Pattern < ActiveRecord::Base
     end
   end
 
-
   def MA_OLD(data, item)
     last = data
     yesterday = data.drop(1)
@@ -251,6 +250,84 @@ class Pattern < ActiveRecord::Base
     end
   end
 
+  def S7(data, item)
+    pattern = 'S7'
+    percent = 15
+    days = 240
+
+    today = data
+    yesterday = data.drop(1)
+    today_candle = Candle.new(today[0])
+    yesterday_candle = Candle.new(yesterday[0])
+    ma = MovingAverage.new
+
+    today_close = today_candle.close
+    yesterday_close = yesterday_candle.close
+
+    # Calculate max
+    max = ma.resistance(days, yesterday)
+    # Calculate min
+    min = ma.floor(days, yesterday)
+
+    dif = (max - min)
+    proc = (dif / max) * 100
+
+    # if previous year price change was less than 15%
+    if (proc <= percent)
+      # yesterday close price was less then max and today is higher
+      if (yesterday_close <= max) && (today_close > max)
+        unless Setup.where('datetime >= ? and symbol = ? AND pattern = ?', Time.at(data[0].date - days.days).to_datetime, item.symbol, pattern).first
+          stop_loss = min - 0.05
+          take_profit = today_candle.high + (today_candle.high * 0.5)
+          levels = [{ :take_profit => take_profit, :buy_stop => today_candle.high + 0.02, :stop_loss => stop_loss }].to_json
+          # Calculate rating
+          profit = take_profit - (today_candle.high + 0.02)
+          risk = (today_candle.high + 0.02) - (stop_loss - 0.02)
+          rating = profit / risk
+          save_setup(item,data,pattern,'BUY',levels, rating)
+        end
+      end
+    end
+  end
+
+  def R_M(data, item)
+    ma = MovingAverage.new
+
+    fifty_ma = ma.sma(50, data)
+
+    Price.table_name = 'D_'+item.symbol
+
+    # Save 50 simple moving average
+    price = Price.where('date = ?', Time.at(data[0].date).to_datetime).first
+    if price.fifty_average.nil?
+      price.fifty_average = fifty_ma
+      price.save
+    end
+
+    # Find 3 years low
+    three_years_back = data[0].date - 3.years
+    fifty_ma_three_years_low = Price.where('date > ? and date <= ?', three_years_back, data[0].date).order('fifty_average asc').first
+    # If it is not the start of the history data
+    if Price.where('date < ?', (fifty_ma_three_years_low.date - 2.months)).first
+      # Find local high (3 months back)
+      local_high = Price.where('date >= ? and date <= ?', (fifty_ma_three_years_low.date - 3.months), fifty_ma_three_years_low.date).order('high desc').first
+
+      unless local_high.nil?
+        unless data[1].nil?
+          # If last day crosses local high
+          if (data[1].high <= local_high.high) && (data[0].high > local_high.high)
+            unless Price.where('date < ? and high > ? and date > ?', data[0].date, data[0].high, fifty_ma_three_years_low.date).first
+              stop_loss = fifty_ma_three_years_low.low - 0.03
+              take_profit = data[0].high + (data[0].high * 0.5)
+              levels = [{ :take_profit => take_profit, :buy_stop => data[0].high + 0.02, :stop_loss => stop_loss }].to_json
+              save_setup(item, data, 'R_M', 'BUY', levels, 1.1)
+            end
+          end
+        end
+      end
+    end
+  end
+
   private
     def save_setup(item, data, pattern, direction, levels, rating)
       unless Setup.where(:datetime => data[0].date, :symbol => item.symbol, :pattern => pattern).first
@@ -268,13 +345,19 @@ class Pattern < ActiveRecord::Base
       end
     end
 
-    def save_note(item, data, pattern)
-      unless Note.where(:datetime => data[0].date, :symbol => item.symbol, :pattern => pattern).first
+    def save_note(item, date, pattern)
+      unless Note.where(:datetime => date, :symbol => item.symbol, :pattern => pattern).first
         note = Note.new
         note.symbol = item.symbol
-        note.datetime = data[0].date
+        note.datetime = date
         note.pattern = pattern
         note.save
       end
+    end
+
+    def sort_by_date(dates, direction='ASC')
+      sorted = dates.sort
+      sorted.reverse! if direction == 'DESC'
+      sorted
     end
 end

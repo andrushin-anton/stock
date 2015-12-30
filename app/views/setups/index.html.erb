@@ -1,4 +1,4 @@
-<% content_for :title, 'Latest finance advices | Finance Assistant' %>
+<% content_for :title, 'Latest finance advices | Stock2.Watch' %>
 <br>
   <% @setups.each do |setup| %>
     <div class="page-header">
@@ -51,7 +51,7 @@
               <p>Date: <%= setup.datetime.strftime('%B %d, %Y') %></p>
           </td>
           <td style="width:40%;">
-            <p><strong><i>Calculations Rating:<%= setup.rating %></i></strong></p>
+            <p><strong><i>Calculations</i></strong></p>
             <table class="table" id="mm_<%= setup.symbol%>_<%= setup.pattern_object.name%>_<%= setup.datetime.to_time.to_i%>">
               <tr><td>Account size <small>with overnight margin</small>: </td><td><input type="text" class="form-control total_money" placeholder="100000" onkeyup="calculate_total('mm_<%= setup.symbol%>_<%= setup.pattern_object.name%>_<%= setup.datetime.to_time.to_i%>', '<%= setup.direction %>', '<%= setup.levels %>')"></td></tr>
               <tr><td>Max risk %: </td><td><input type="text" class="form-control risk_percent" value="2"></td></tr>

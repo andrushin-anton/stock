@@ -31,4 +31,37 @@ class MovingAverage
     k = 2.0 / (number_of_days.to_f + 1.0)
     return (today_price * k + ema_yesterday * (1.0 - k)).round(2)
   end
+
+  def resistance(days, quotes)
+    if quotes.length < days
+      days_for_loop = quotes.length
+    else
+      days_for_loop = days
+    end
+
+    daysMax = []
+    for index in 0 ... days_for_loop
+      daysMax << quotes[index].hight
+    end
+
+    return daysMax.max
+  end
+
+  def floor(days, quotes)
+    if quotes.length < days
+      days_for_loop = quotes.length
+    else
+      days_for_loop = days
+    end
+
+    daysMin = []
+    daysWithDateMin = []
+    for index in 0 ... days_for_loop
+      daysMin << quotes[index].low
+      daysWithDateMin[quotes[index].low] = quotes[index].date
+    end
+    min = daysMin.min
+
+    return {'low' => min, 'date' => daysWithDateMin[min]}
+  end
 end

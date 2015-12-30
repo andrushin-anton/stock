@@ -7,7 +7,7 @@ MCD,McDonald's Corp.,NYSE,"{""Company_Info"":{""CEO"":""Steve J. Easterbrook"","
 SBUX,Starbucks Corporation,NasdaqGS,"{""Company_Info"":{""CEO"":""Howard D. Schultz"",""Industry"":""Food Services"",""Sector"":""Hotels, Resturants & Leisure"",""HQ_Location"":""Seattle, WA"",""Website"":""http://www.starbucks.com""}}"
 HPQ,Hewlett-Packard Company,NYSE,"{""Company_Info"":{""CEO"":""Margaret C. Whitman"",""Industry"":""Computers, Office Equipment"",""Sector"":""Technology"",""HQ_Location"":""Palo Alto, CA"",""Website"":""http://www.hp.com""}}"
 MSFT,Microsoft Corporation,NasdaqGS,"{""Company_Info"":{""CEO"":""Satya Nadella"",""Industry"":""Computer Software"",""Sector"":""Technology"",""HQ_Location"":""Redmond, WA"",""Website"":""http://www.microsoft.com""}}"
-GOOG,Google Inc.,NasdaqGS,"{""Company_Info"":{""CEO"":""Larry Page"",""Industry"":""Internet Services and Retailing"",""Sector"":""Technology"",""HQ_Location"":""Mountain View, CA"",""Website"":""http://www.google.com""}}"
+GOOGL,Google Inc.,NasdaqGS,"{""Company_Info"":{""CEO"":""Larry Page"",""Industry"":""Internet Services and Retailing"",""Sector"":""Technology"",""HQ_Location"":""Mountain View, CA"",""Website"":""http://www.google.com""}}"
 FB,"Facebook, Inc.",NasdaqGS,
 TWTR,"Twitter, Inc.",NYSE,
 DDD,3D Systems Corporation,NYSE,
@@ -21,7 +21,7 @@ BAX,Baxter International Inc.,NYSE,"{""Company_Info"":{""CEO"":""Robert L. Parki
 X,United States Steel Corp.,NYSE,"{""Company_Info"":{""CEO"":""Mario Longhi"",""Industry"":""Metals"",""Sector"":""Materials"",""HQ_Location"":""Pittsburgh, PA"",""Website"":""http://www.ussteel.com""}}"
 XOM,Exxon Mobil Corporation,NYSE,
 HAL,Halliburton Company,NYSE,"{""Company_Info"":{""CEO"":""David J. Lesar"",""Industry"":""Oil and Gas Equipment, Services"",""Sector"":""Energy"",""HQ_Location"":""Houston, TX"",""Website"":""http://www.halliburton.com""}}"
-F,Ford Motor Co.,NYSE,"{""Company_Info"":{""CEO"":""Mark Fields"",""Industry"":""Motor Vehicles and Parts"",""Sector"":""	Motor Vehicles & Parts"",""HQ_Location"":""Dearborn, MI"",""Website"":""http://www.ford.com""}}"
+F,Ford Motor Co.,NYSE,"{""Company_Info"":{""CEO"":""Mark Fields"",""Industry"":""Motor Vehicles and Parts"",""Sector"":""Motor Vehicles & Parts"",""HQ_Location"":""Dearborn, MI"",""Website"":""http://www.ford.com""}}"
 WFC,Wells Fargo & Company,NYSE,"{""Company_Info"":{""CEO"":""John G. Stumpf"",""Industry"":""Commercial Banks"",""Sector"":""Financials"",""HQ_Location"":""San Francisco, CA"",""Website"":""http://www.wellsfargo.com""}}"
 FDX,FedEx Corporation,NYSE,"{""Company_Info"":{""CEO"":""Frederick W. Smith"",""Industry"":""Mail, Package, and Freight Delivery"",""Sector"":""Transportation"",""HQ_Location"":""Memphis, TN"",""Website"":""http://www.fedex.com""}}"
 DIS,The Walt Disney Company,NYSE,"{""Company_Info"":{""CEO"":""Robert A. Iger"",""Industry"":""Entertainment"",""Sector"":""Media"",""HQ_Location"":""Burbank, CA"",""Website"":""http://www.disney.com""}}"

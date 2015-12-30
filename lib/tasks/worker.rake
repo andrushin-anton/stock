@@ -6,8 +6,10 @@ namespace :worker do
     Item.all().each do |item|
       Price.table_name = 'D_'+item.symbol
       # Get data for last 3 days for this stock
-      ten_days_data = Price.where("date < '" + DateTime.now.strftime('%Y-%m-%d 00:00:00') + "'").order('date desc').first(501)
-      if ten_days_data.length > 1
+      till = DateTime.now.strftime('%Y-%m-%d').to_datetime
+      # till = '2014-12-31'.to_datetime
+      ten_days_data = Price.where('date < ?', till).order('date desc').first(210)
+      # if ten_days_data.length > 1
         # Loop through all of the existing pattens
         Pattern.all().each do |pattern|
           if pattern.respond_to? pattern.name
@@ -15,7 +17,7 @@ namespace :worker do
             pattern.send(pattern.name, ten_days_data, item)
           end
         end
-      end
+      # end
     end
   end
 
@@ -25,11 +27,14 @@ namespace :worker do
     i = 1
     Item.all().each do |item|
       # if ['MCD','FB','MRK','INTC','HD','CMCSA','HCA','TJX','NOC','TWC','USB','USB','DHR','PGR','PCAR','GIS','JBL','PNC','OMC','ARMK'].include? item.symbol
-      # if ['VLO'].include? item.symbol
+      # if ['FB'].include? item.symbol
          Price.table_name = 'D_'+item.symbol
-        ('2013-01-01'.to_datetime.to_i .. DateTime.yesterday.strftime('%Y-%m-%d').to_datetime.to_i).step(1.day) do |date|
-          ten_days_data = Price.where('date <= ?', Time.at(date).to_datetime).order('date desc').first(501)
-          if ten_days_data.length > 1
+         first_day = Price.order('date asc').first
+         from = first_day.date.to_datetime.to_i
+         till = DateTime.yesterday.strftime('%Y-%m-%d').to_datetime.to_i
+        (from .. till).step(1.day) do |date|
+          ten_days_data = Price.where('date <= ?', Time.at(date).to_datetime).order('date desc').first(210)
+          # if ten_days_data.length > 1
             # Loop through all of the existing pattens
             Pattern.all().each do |pattern|
               if pattern.respond_to? pattern.name
@@ -37,7 +42,7 @@ namespace :worker do
                 pattern.send(pattern.name, ten_days_data, item)
               end
             end
-          end
+          # end
         end
         puts i.to_s + '.' + item.symbol
         i = i + 1

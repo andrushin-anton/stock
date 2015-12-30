@@ -39,11 +39,14 @@ namespace :scraper do
           ActiveRecord::Base.connection.create_table 'D_'+quote['symbol'] do |t|
             t.datetime :date
             t.float :open
-            t.float :hight
+            t.float :high
             t.float :low
             t.float :close
             t.integer :volume
             t.float :adj_close
+            t.float :fifty_average
+            t.float :hundred_average
+            t.float :two_hundred_average
 
             t.timestamps null: false
           end
@@ -54,7 +57,7 @@ namespace :scraper do
         last_trade_date = Date.strptime(quote['LastTradeDate'], '%m/%d/%Y')
         if price = Price.where(:date => last_trade_date).first
           price.volume = quote['Volume']
-          price.hight = quote['DaysHigh']
+          price.high = quote['DaysHigh']
           price.low = quote['DaysLow']
           price.open = quote['Open']
           price.close = quote['LastTradePriceOnly']
@@ -62,7 +65,7 @@ namespace :scraper do
           price = Price.new
           price.date = last_trade_date
           price.volume = quote['Volume']
-          price.hight = quote['DaysHigh']
+          price.high = quote['DaysHigh']
           price.low = quote['DaysLow']
           price.open = quote['Open']
           price.close = quote['LastTradePriceOnly']
@@ -91,11 +94,14 @@ namespace :scraper do
         ActiveRecord::Base.connection.create_table 'D_'+symbol do |t|
           t.datetime :date
           t.float :open
-          t.float :hight
+          t.float :high
           t.float :low
           t.float :close
           t.integer :volume
           t.float :adj_close
+          t.float :fifty_average
+          t.float :hundred_average
+          t.float :two_hundred_average
 
           t.timestamps null: false
         end
@@ -117,7 +123,7 @@ namespace :scraper do
                 price = Price.new
                 price.date = datetime
                 price.volume = row[5]
-                price.hight = row[2]
+                price.high = row[2]
                 price.low = row[3]
                 price.open = row[1]
                 price.close = row[4]
