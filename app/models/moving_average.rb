@@ -41,7 +41,7 @@ class MovingAverage
 
     daysMax = []
     for index in 0 ... days_for_loop
-      daysMax << quotes[index].hight
+      daysMax << quotes[index].high
     end
 
     return daysMax.max
@@ -55,13 +55,28 @@ class MovingAverage
     end
 
     daysMin = []
-    daysWithDateMin = []
+    #daysWithDateMin = []
     for index in 0 ... days_for_loop
       daysMin << quotes[index].low
-      daysWithDateMin[quotes[index].low] = quotes[index].date
+      #daysWithDateMin[quotes[index].low] = quotes[index].date
     end
     min = daysMin.min
+    return min
 
-    return {'low' => min, 'date' => daysWithDateMin[min]}
+    #return {'low' => min, 'date' => daysWithDateMin[min]}
+  end
+
+  def volume(days, quotes)
+    if quotes.length < days
+      days_for_loop = quotes.length
+    else
+      days_for_loop = days
+    end
+
+    average_volume = 0;
+    for index in 0 ... days_for_loop
+      average_volume = average_volume + quotes[index].volume
+    end
+    return (average_volume / days_for_loop).to_int
   end
 end

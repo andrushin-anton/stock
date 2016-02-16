@@ -42,6 +42,8 @@ class SetupsController < ApplicationController
     Price.table_name = 'D_' + @setup.symbol
     @setup.create_attr('quotes')
     @setup.quotes = Price.order('date desc').all().reverse
+
+    @other_days_setups = Setup.where('symbol =? and pattern =? and slug !=?', @setup.symbol, @setup.pattern, @setup.slug).order('datetime desc')
   end
 
   # GET /setups/new

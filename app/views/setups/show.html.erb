@@ -2,7 +2,7 @@
 <br>
 <br>
 <div>
-  <%= render :partial => 'highchart', :locals => { :setup => @setup, :width => '100%', :height => '500px', :selected => 1 } %>
+  <%= render :partial => 'highchart', :locals => { :setup => @setup, :others => @other_days_setups, :width => '100%', :height => '500px', :selected => 1 } %>
 </div>
 <br>
 <div>
@@ -63,4 +63,31 @@
       </td>
     </tr>
   </table>
+  <% @other_days_setups.each do |setup| %>
+      <div class="page-header">
+        <h1><a href="<%= setup_path setup %>" class="header-link"><%= setup.name %></a> <small><%= setup.datetime.strftime('%B %d, %Y') %></small></h1>
+      </div>
+      <div>
+        <table class="table">
+          <tr>
+            <td style="width:100%;">
+              <strong><i>Advice</i></strong>&nbsp;<span class="<%= setup.direction %>"><%= setup.direction %></span>
+              <% levels = JSON.parse setup.levels %>
+              <% levels.each do |level| %>
+                  <% if level.has_key?('buy_stop') %>
+                      <span class="BUY">Buy Stop: <strong><%= level['buy_stop'].round(2) %></strong></span>
+                      <span>Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong></span>
+                      <span>Take profit: <strong><%= level['take_profit'].round(2) %></strong></span>
+                  <% end %>
+                  <% if level.has_key?('sell_stop') %>
+                      <span class="SELL">Sell Stop: <strong><%= level['sell_stop'].round(2) %></strong></span>
+                      <span>Stop Loss: <strong><%= level['stop_loss'].round(2) %></strong></span>
+                      <span>Take profit: <strong><%= level['take_profit'].round(2) %></strong></span>
+                  <% end %>
+              <% end %>
+            </td>
+          </tr>
+        </table>
+      </div>
+  <% end %>
 </div>

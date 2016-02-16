@@ -2,6 +2,169 @@ class Pattern < ActiveRecord::Base
   require 'json'
   belongs_to :setup, :foreign_key => 'name', :primary_key => 'pattern'
 
+  def R_M(data, item)
+
+    if data.count > 3
+
+      direction = 'BUY'
+      pattern = 'R_M'
+      today = data
+      yesterday = data.drop(1)
+      today_candle = Candle.new(today[0])
+      ma = MovingAverage.new
+      average_volume = ma.volume(60, yesterday)
+      Price.table_name = 'D_'+item.symbol
+
+      # Big volume spike
+      if today_candle.is_buy
+        if today_candle.volume >= (average_volume * 2)
+          year_resistance = Price.where('date >= ? and date <= ?', data[0].date - 1.year, yesterday[0].date).order('high desc').first
+          if today_candle.high >= year_resistance.high
+            if year_resistance.date <= data[0].date - 2.months
+              stop_loss = ma.floor(14, yesterday) - 0.03
+              take_profit = today_candle.high + (today_candle.high * 0.20)
+              levels = [{ :take_profit => take_profit, :buy_stop => today_candle.high + 0.02, :stop_loss => stop_loss }].to_json
+              save_setup(item, data, pattern, direction, levels, 1.1)
+            end
+          end
+        end
+      end
+
+      end
+
+  end
+
+  def R_M_WITH_MOVING_AVERAGES(data, item)
+    direction = 'BUY'
+    pattern = 'R_M'
+    today = data
+    yesterday = data.drop(1)
+    today_candle = Candle.new(today[0])
+    yesterday_candle = Candle.new(yesterday[0])
+    ma = MovingAverage.new
+    average_volume = ma.volume(60, yesterday)
+
+    Price.table_name = 'D_'+item.symbol
+
+    sma_90 = ma.sma(90, yesterday)
+    sma_70 = ma.sma(70, yesterday)
+    sma_50 = ma.sma(50, yesterday)
+
+    if today_candle.is_buy
+      if today_candle.volume >= (average_volume * 2.5)
+        if today_candle.high > sma_50
+          if (sma_50 >= sma_70 && sma_70 >= sma_90)
+
+            stop_loss = ma.floor(14, data) - 0.03
+            take_profit = today_candle.high + (today_candle.high * 0.20)
+            levels = [{ :take_profit => take_profit, :buy_stop => today_candle.high + 0.02, :stop_loss => stop_loss }].to_json
+            save_setup(item, data, pattern, direction, levels, 1.1)
+
+          end
+        end
+      end
+    end
+  end
+
+  # Big volume spike(buy) crosses 1 year resistance (GOOD)
+  def R_M_GOOD(data, item)
+    direction = 'BUY'
+    pattern = 'R_M'
+    today = data
+    yesterday = data.drop(1)
+    today_candle = Candle.new(today[0])
+    ma = MovingAverage.new
+    average_volume = ma.volume(60, yesterday)
+    Price.table_name = 'D_'+item.symbol
+
+    # Big volume spike
+    if today_candle.is_buy
+      if today_candle.volume >= (average_volume * 2)
+        year_resistance = Price.where('date >= ? and date <= ?', data[0].date - 1.year, yesterday[0].date).order('high desc').first
+        if today_candle.high >= year_resistance.high
+          if year_resistance.date <= data[0].date - 2.months
+            stop_loss = ma.floor(30, yesterday) - 0.03
+            take_profit = today_candle.high + (today_candle.high * 0.20)
+            levels = [{ :take_profit => take_profit, :buy_stop => today_candle.high + 0.02, :stop_loss => stop_loss }].to_json
+            save_setup(item, data, pattern, direction, levels, 1.1)
+          end
+        end
+      end
+    end
+  end
+
+  # 1. Gap down with big volume spike
+  def R_M_DOWN(data, item)
+    direction = 'BUY'
+    pattern = 'R_M'
+    today = data
+    yesterday = data.drop(1)
+    today_candle = Candle.new(today[0])
+    yesterday_candle = Candle.new(yesterday[0])
+    ma = MovingAverage.new
+    average_volume = ma.volume(60, yesterday)
+
+    note = Note.where('symbol = ?', item.symbol).first
+    unless note.nil?
+      if note.datetime >= (data[0].date - 30.days) && note.datetime != data[0].date
+        if today_candle.high >= note.pattern.to_f
+          note.delete
+          stop_loss = ma.floor(30, today) - 0.03
+          take_profit = today_candle.high + (today_candle.high * 0.20)
+          levels = [{ :take_profit => take_profit, :buy_stop => today_candle.high + 0.02, :stop_loss => stop_loss }].to_json
+          save_setup(item, data, pattern, direction, levels, 1.1)
+        end
+      end
+    end
+
+    # 1. Gap down with big volume spike
+    if today_candle.high < yesterday_candle.low
+      if today_candle.volume >= (average_volume * 3)
+        prev_note = Note.where('symbol = ?', item.symbol).first
+        unless prev_note.nil?
+          prev_note.delete
+        end
+        note = Note.new
+        note.symbol = item.symbol
+        note.pattern = today_candle.high.to_s
+        note.datetime = data[0].date
+        note.save
+      end
+    end
+
+  end
+
+  # 2. Gap up with big volume spike
+  def R_M_UP(data, item)
+    direction = 'BUY'
+    pattern = 'R_M'
+    today = data
+    yesterday = data.drop(1)
+    today_candle = Candle.new(today[0])
+    yesterday_candle = Candle.new(yesterday[0])
+    ma = MovingAverage.new
+    average_volume = ma.volume(60, yesterday)
+
+    # 1. Gap up with big volume spike
+    if today_candle.is_buy
+      if today_candle.low > yesterday_candle.high
+        if today_candle.volume >= (average_volume * 3)
+          unless Setup.where('symbol =? and pattern =? and direction =? and datetime > ? and datetime < ?', item.symbol, pattern, direction, (today[0].date - 180.days), today[0].date).first
+            stop_loss = ma.floor(30, yesterday) - 0.03
+            take_profit = today_candle.high + (today_candle.high * 0.20)
+            levels = [{ :take_profit => take_profit, :buy_stop => today_candle.high + 0.02, :stop_loss => stop_loss }].to_json
+            save_setup(item, data, pattern, direction, levels, 1.1)
+          end
+        end
+      end
+    end
+
+  end
+
+
+
+
+
   def M_S(data, item)
     macd = Macd.new(data)
     moving_average = MovingAverage.new
@@ -290,39 +453,58 @@ class Pattern < ActiveRecord::Base
     end
   end
 
-  def R_M(data, item)
-    ma = MovingAverage.new
+  def R_M_old(data, item)
+    pattern = 'R_M'
+    # ma = MovingAverage.new
 
-    fifty_ma = ma.sma(50, data)
+    # five_ma = ma.sma(5, data)
+    # two_hundred_fifty_ma = ma.sma(250, data)
 
     Price.table_name = 'D_'+item.symbol
 
-    # Save 50 simple moving average
-    price = Price.where('date = ?', Time.at(data[0].date).to_datetime).first
-    if price.fifty_average.nil?
-      price.fifty_average = fifty_ma
-      price.save
-    end
+    # Save 5 simple moving average
+    # price = Price.where('date = ?', Time.at(data[0].date).to_datetime).first
+    #if price.fifty_average.nil?
+      # price.fifty_average = five_ma
+      # price.save
+    #end
 
-    # Find 3 years low
-    three_years_back = data[0].date - 3.years
-    fifty_ma_three_years_low = Price.where('date > ? and date <= ?', three_years_back, data[0].date).order('fifty_average asc').first
     # If it is not the start of the history data
-    if Price.where('date < ?', (fifty_ma_three_years_low.date - 2.months)).first
-      # Find local high (5 months back)
-      local_high = Price.where('date >= ? and date <= ?', (fifty_ma_three_years_low.date - 5.months), fifty_ma_three_years_low.date).order('high desc').first
-
-      unless local_high.nil?
-        unless data[1].nil?
-          # If last day crosses local high
-          if (data[1].high <= local_high.high) && (data[0].high > local_high.high)
-            unless Price.where('date < ? and high > ? and date > ?', data[0].date, data[0].high, fifty_ma_three_years_low.date).first
-              stop_loss = fifty_ma_three_years_low.low - 0.03
-              take_profit = data[0].high + (data[0].high * 0.5)
-              levels = [{ :take_profit => take_profit, :buy_stop => data[0].high + 0.02, :stop_loss => stop_loss }].to_json
-              save_setup(item, data, 'R_M', 'BUY', levels, 1.1)
-            end
+    if Price.where('date < ?', (data[0].date - 6.months)).first
+      year_back = data[0].date - 12.months
+      six_months_back = data[0].date - 6.months
+      # 1. if today is 0.5 year low - find prev 0.5 year high
+      five_ma_6_months_low = Price.where('date > ? and date <= ?', year_back, data[0].date).order('low asc').first
+      prev_note = Note.where('symbol = ?', item.symbol).first
+      if five_ma_6_months_low.date == data[0].date
+        five_ma_6_months_high = Price.where('date > ? and date <= ?', year_back, data[0].date).order('high desc').first
+        # 2. delete from notes and save to notes low and high
+        unless prev_note.nil?
+        #   prev_note_levels = JSON.parse(prev_note.pattern)
+        #   if data[0].low < prev_note_levels['low'].to_f
+            prev_note.delete
+            # save_note(item, five_ma_6_months_high.date, '{"high":"'+five_ma_6_months_high.high.to_s+'", "low":"'+five_ma_6_months_low.low.to_s+'"}')
           end
+        # else
+          save_note(item, five_ma_6_months_high.date, '{"high":"'+five_ma_6_months_high.high.to_s+'", "low":"'+five_ma_6_months_low.low.to_s+'"}')
+        # end
+      end
+
+      # 3. check if today crosses levels from notes
+      note = Note.where('symbol = ?', item.symbol).first
+      unless note.nil?
+        note_levels = JSON.parse(note.pattern)
+        if data[0].high > note_levels['high'].to_f
+          # 4. if yes remove from notes
+          note_date = note.datetime
+          note.delete
+          # if ((data[0].date.to_date - note_date.to_date).to_i) > 200
+            # 5. save setup
+            stop_loss = note_levels['low'].to_f - 0.03
+            take_profit = data[0].high + (data[0].high * 0.15)
+            levels = [{ :take_profit => take_profit, :buy_stop => data[0].high + 0.02, :stop_loss => stop_loss }].to_json
+            save_setup(item, data, pattern, 'BUY', levels, 1.1)
+          # end
         end
       end
     end

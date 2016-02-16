@@ -55,10 +55,12 @@
                 // the event marker flags
                 }, {
                 type : 'flags',
-                data : [{
-                    x : Date.UTC(<%=setup.datetime.strftime('%Y').to_i%>, <%=setup.datetime.strftime('%m').to_i - 1%>, <%=setup.datetime.strftime('%d').to_i%>),
-                    title : 'Buy'
-                }]
+                data : [
+                    { x : Date.UTC(<%=setup.datetime.strftime('%Y').to_i%>, <%=setup.datetime.strftime('%m').to_i - 1%>, <%=setup.datetime.strftime('%d').to_i%>), title : 'Buy'},
+                    <% others.each do |other| %>
+                    { x : Date.UTC(<%=other.datetime.strftime('%Y').to_i%>, <%=other.datetime.strftime('%m').to_i - 1%>, <%=other.datetime.strftime('%d').to_i%>), title : 'Buy'},
+                    <% end %>
+                ]
             }]
         });
     });

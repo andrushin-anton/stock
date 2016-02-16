@@ -18,7 +18,7 @@ class Candle
   def initialize(quote)
     @open = quote.open
     @close = quote.close
-    @high = quote.hight
+    @high = quote.high
     @low = quote.low
     @volume = quote.volume
     @is_hammer = false
